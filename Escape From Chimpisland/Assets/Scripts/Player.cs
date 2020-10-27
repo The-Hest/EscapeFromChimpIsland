@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float movementSpeed;
     public Rigidbody2D rigidgebody;
@@ -35,5 +35,14 @@ public class Movement : MonoBehaviour
     void Move()
     {
         rigidgebody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag.Equals("Enemy"))
+        {
+
+            Destroy(this.gameObject);
+        }
     }
 }
