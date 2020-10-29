@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float attackingDistance;
     public Rigidbody2D enemyrigidgebody;
+    public DamageController damageController;
 
     private Transform target;
 
@@ -21,11 +22,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Enemymovement();
-
-
-
     }
 
     void Enemymovement()
@@ -35,7 +32,5 @@ public class Enemy : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        }
-   
-
+    }
 }

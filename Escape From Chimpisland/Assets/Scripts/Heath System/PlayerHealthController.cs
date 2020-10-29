@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealthController : MonoBehaviour
 {
     public HealthController healthController;
     public DamageController damageController;
@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     {
         healthController.playerHealth = 100;
         healthController.UpdateHealthUI();
-        
+
     }
 
     // Update is called once per frame

@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
     public Text healthUIText;
     public int playerHealth;
-
 
     public void HealingReceived(int healing)
     {
