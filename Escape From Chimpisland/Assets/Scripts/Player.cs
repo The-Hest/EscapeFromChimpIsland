@@ -36,13 +36,4 @@ public class Player : MonoBehaviour
     {
         rigidgebody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
     }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag.Equals("Enemy"))
-        {
-
-            Destroy(this.gameObject);
-        }
-    }
 }
