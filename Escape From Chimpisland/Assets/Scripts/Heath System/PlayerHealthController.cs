@@ -6,6 +6,7 @@ public class PlayerHealthController : MonoBehaviour
 {
     public HealthController healthController;
     public DamageController damageController;
+    public HealingController healingController;
 
     // Start is called before the first frame update
     public void Start()
@@ -21,8 +22,19 @@ public class PlayerHealthController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        healthController.DamageTaken(damageController.damage);
+        if (collider.gameObject.tag.Equals("Healing"))
+        {
+            healthController.HealingReceived(healingController.healing);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            healthController.DamageTaken(damageController.damage);
+        }
     }
 }

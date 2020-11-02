@@ -9,6 +9,7 @@ TagManager:
   - closed
   - middleObst
   - Enemy
+  - Healing
   layers:
   - Default
   - TransparentFX
