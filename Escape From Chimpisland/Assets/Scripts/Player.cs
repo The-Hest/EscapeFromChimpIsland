@@ -6,8 +6,11 @@ public class Player : MonoBehaviour
 {
     public float movementSpeed;
     public Rigidbody2D rigidgebody;
+    
 
     private Vector2 moveDirection;
+
+
 
     // Update is called once per frame
     void Update()
@@ -22,6 +25,9 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+
+       
+        
     }
 
     void ProcessInput()
@@ -36,4 +42,5 @@ public class Player : MonoBehaviour
     {
         rigidgebody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
     }
+
 }
