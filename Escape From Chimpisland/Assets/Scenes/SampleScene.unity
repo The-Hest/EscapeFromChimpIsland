@@ -317,7 +317,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  dashSpeed: 50
+  dashDuration: 1
   rigidgebody: {fileID: 462453625}
+  playerSprite: {fileID: 462453626}
 --- !u!223 &462453629
 Canvas:
   m_ObjectHideFlags: 0
