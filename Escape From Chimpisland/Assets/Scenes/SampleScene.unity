@@ -318,7 +318,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  dashSpeed: 50
+  dashDuration: 1
   rigidgebody: {fileID: 462453625}
+  playerSprite: {fileID: 462453626}
 --- !u!223 &462453629
 Canvas:
   m_ObjectHideFlags: 0
@@ -563,6 +566,9 @@ MonoBehaviour:
   - {fileID: 6194853901289698252, guid: ffb940cd224287440985abde7ae6a1d1, type: 3}
   - {fileID: 2474176113774384701, guid: 517baaffaae2851418e8a2c096787a4f, type: 3}
   closedRoom: {fileID: 3203165889723248981, guid: a0977536678c825409c47c6b5ee489dd, type: 3}
+  rooms: []
+  waitTime: 2
+  boss: {fileID: 4422392072482452247, guid: ce7959130041be94586f4a281fd4ec4d, type: 3}
 --- !u!4 &1053109992
 Transform:
   m_ObjectHideFlags: 0
