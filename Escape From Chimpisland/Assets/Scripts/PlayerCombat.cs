@@ -5,22 +5,41 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Transform attackPoint;
+    public Transform attackPointLeft;
+    public Transform attackPointRight;
+
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
     public float attackRate = 1f;
     float attackDelayTime = 0f;
+    float keyPressed = 0f;
+    
 
     // Update is called once per frame
+    
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            keyPressed = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            keyPressed = 2;
+        }
+
         if (Input.GetKeyDown(KeyCode.V))
         {
 
             if(Time.time >= attackDelayTime)
             {
-                Attack();
+
+               
+               Attack();
+                
                 attackDelayTime = Time.time + 1f / attackRate;
 
             }
@@ -31,22 +50,54 @@ public class PlayerCombat : MonoBehaviour
     {
         // MANGLER ANIMATION
 
-        Collider2D[] hitEnemy = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider2D Enemy in hitEnemy)
+        if (keyPressed == 1)
         {
-            Destroy(Enemy.gameObject);
+            Collider2D[] hitEnemyRight = Physics2D.OverlapCircleAll(attackPointRight.position, attackRange, enemyLayers);
+
+
+            foreach (Collider2D Enemy in hitEnemyRight)
+            {
+                Destroy(Enemy.gameObject);
+            }
+
+
         }
 
+        if (keyPressed == 2)
+        {
+
+            Collider2D[] hitEnemyLeft = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, enemyLayers);
+
+
+            foreach (Collider2D Enemy in hitEnemyLeft)
+            {
+                Destroy(Enemy.gameObject);
+            }
+        }
     }
 
     void OnDrawGizmosSelected()
     {
-        if (attackPoint == null)
+        if (keyPressed == 2)
         {
-            return;
+            if (attackPointLeft == null)
+            {
+                return;
+            }
+
+
+            Gizmos.DrawWireSphere(attackPointLeft.position, attackRange);
         }
 
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        if (keyPressed == 1)
+        {
+            if (attackPointRight == null)
+            {
+                return;
+            }
+
+            Gizmos.DrawWireSphere(attackPointRight.position, attackRange);
+        }
     }
 }
