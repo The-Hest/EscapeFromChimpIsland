@@ -11,15 +11,17 @@ public class Player : MonoBehaviour
     public float dashDuration;
     public Rigidbody2D rigidgebody;
     public SpriteRenderer playerSprite;
-    
+
 
     private Vector2 moveDirection = new Vector2();
     private Vector2 currentVelocity = new Vector2();
     private float dashTime;
+    private bool dashing;
 
     private void Start()
     {
         dashTime = dashDuration;
+        dashing = false;
     }
 
 
@@ -28,7 +30,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         ProcessInput();
-        
+
     }
 
     /// <summary>
@@ -36,28 +38,37 @@ public class Player : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-
-        Move();
-       
-        
-
     }
 
     public void ProcessInput()
     {
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
-        
+
 
         if (moveDirection.x > 0 && !playerSprite.flipX) playerSprite.flipX = true;
-        else if (moveDirection.x < 0 && playerSprite)   playerSprite.flipX = false;
+        else if (moveDirection.x < 0 && playerSprite) playerSprite.flipX = false;
 
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Dash();
+            dashing = true;
         }
-        else
+
+        if (dashing)
+        {
+            if (dashTime > 0)
+            {
+                Dash();
+                dashTime -= Time.deltaTime;
+            }
+            else
+            {
+                dashTime = dashDuration;
+                dashing = false;
+            }
+        }
+        else if (!dashing)
         {
             Move();
         }
@@ -70,18 +81,7 @@ public class Player : MonoBehaviour
 
     public void Dash()
     {
-        rigidgebody.velocity = new Vector2(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed);
-        //if (dashTime <= 0)
-        //{
-        //    dashTime = dashDuration;
-        //    rigidgebody.velocity = Vector2.zero;
-        //}
-        //else if (dashTime >= 0)
-        //{
-        //    dashTime -= Time.deltaTime;
-        //    Debug.Log($"Dash {dashTime}");
-        //    rigidgebody.velocity = new Vector2(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed);
-        //}
+        transform.Translate(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, 0);
     }
 
 }
