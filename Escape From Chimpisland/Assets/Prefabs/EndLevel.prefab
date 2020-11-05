@@ -947,6 +947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ac398560389dc4c9e26f2fb15387b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelName: Boss1
 --- !u!1 &5555468747596569725
 GameObject:
   m_ObjectHideFlags: 0

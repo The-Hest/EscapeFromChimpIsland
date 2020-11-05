@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
 
-    // Update is called once per frame
+
+    public string levelName;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
+            SceneManager.LoadScene(levelName);
         }
     }
 }
