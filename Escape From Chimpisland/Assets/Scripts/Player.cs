@@ -11,17 +11,23 @@ public class Player : MonoBehaviour
     public float dashDuration;
     public Rigidbody2D rigidgebody;
     public SpriteRenderer playerSprite;
+   
 
 
     private Vector2 moveDirection = new Vector2();
     private Vector2 currentVelocity = new Vector2();
     private float dashTime;
     private bool dashing;
+    
+
+    
 
     private void Start()
     {
+        
         dashTime = dashDuration;
         dashing = false;
+        
     }
 
 
@@ -45,6 +51,10 @@ public class Player : MonoBehaviour
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
 
+        if (Input.GetKey(KeyCode.E))
+        {
+            
+        }
 
         if (moveDirection.x > 0 && !playerSprite.flipX) playerSprite.flipX = true;
         else if (moveDirection.x < 0 && playerSprite) playerSprite.flipX = false;
@@ -83,5 +93,10 @@ public class Player : MonoBehaviour
     {
         transform.Translate(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, 0);
     }
+
+
+
+
+    
 
 }

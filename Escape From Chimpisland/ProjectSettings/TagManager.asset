@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Healing
   - EndLevel
+  - Collectibles
   layers:
   - Default
   - TransparentFX
