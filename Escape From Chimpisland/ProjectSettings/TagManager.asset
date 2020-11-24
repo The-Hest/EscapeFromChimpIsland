@@ -14,6 +14,7 @@ TagManager:
   - Collectibles
   - Slot
   - Highlighter
+  - Enemy2
   layers:
   - Default
   - TransparentFX
