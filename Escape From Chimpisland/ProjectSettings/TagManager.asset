@@ -12,6 +12,8 @@ TagManager:
   - Healing
   - EndLevel
   - Collectibles
+  - Slot
+  - Highlighter
   layers:
   - Default
   - TransparentFX
