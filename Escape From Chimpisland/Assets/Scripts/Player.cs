@@ -18,13 +18,21 @@ public class Player : MonoBehaviour
     private Vector2 currentVelocity = new Vector2();
     private float dashTime;
     private bool dashing;
-    
 
-    
+    private Inventory mInventory;
+    private GameObject highlighter;
+
+
+
 
     private void Start()
     {
-        
+
+        mInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        highlighter = GameObject.FindGameObjectWithTag("Highlighter");
+        highlighter.transform.position = mInventory.slots[0].transform.position;
+
+
         dashTime = dashDuration;
         dashing = false;
         
@@ -51,9 +59,66 @@ public class Player : MonoBehaviour
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey("1"))
         {
-            
+            for (int i = 0; i < mInventory.slots.Length; i++)
+            {
+                mInventory.isSelected[i] = false;
+            }
+
+            int x = 0;
+            mInventory.isSelected[x] = true;
+            highlighter.transform.position = mInventory.slots[x].transform.position;
+
+
+        }
+
+        if (Input.GetKey("2"))
+        {
+            for (int i = 0; i < mInventory.slots.Length; i++)
+            {
+                mInventory.isSelected[i] = false;
+            }
+
+            int x = 1;
+            mInventory.isSelected[x] = true;
+            highlighter.transform.position = mInventory.slots[x].transform.position;
+        }
+
+        if (Input.GetKey("3"))
+        {
+            for (int i = 0; i < mInventory.slots.Length; i++)
+            {
+                mInventory.isSelected[i] = false;
+            }
+
+            int x = 2;
+            mInventory.isSelected[x] = true;
+            highlighter.transform.position = mInventory.slots[x].transform.position;
+        }
+
+        if (Input.GetKey("4"))
+        {
+            for (int i = 0; i < mInventory.slots.Length; i++)
+            {
+                mInventory.isSelected[i] = false;
+            }
+
+            int x = 3;
+            mInventory.isSelected[x] = true;
+            highlighter.transform.position = mInventory.slots[x].transform.position;
+        }
+
+        if (Input.GetKey("5"))
+        {
+            for (int i = 0; i < mInventory.slots.Length; i++)
+            {
+                mInventory.isSelected[i] = false;
+            }
+
+            int x = 4;
+            mInventory.isSelected[x] = true;
+            highlighter.transform.position = mInventory.slots[x].transform.position;
         }
 
         if (moveDirection.x > 0 && !playerSprite.flipX) playerSprite.flipX = true;
