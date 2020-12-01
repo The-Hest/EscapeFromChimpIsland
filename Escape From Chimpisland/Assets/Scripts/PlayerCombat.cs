@@ -26,21 +26,19 @@ public class PlayerCombat : MonoBehaviour
             keyPressed = 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             keyPressed = 2;
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
 
             if(Time.time >= attackDelayTime)
             {
 
-               
                Attack();
-                
-                attackDelayTime = Time.time + 1f / attackRate;
+               attackDelayTime = Time.time + 1f / attackRate;
 
             }
             
@@ -49,7 +47,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         // MANGLER ANIMATION
-
+        FindObjectOfType<AudioManager>().Play("FastSwordSwing");
 
         if (keyPressed == 1)
         {

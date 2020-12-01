@@ -7,6 +7,7 @@ public class HealthController : MonoBehaviour
 {
     public Text healthUIText;
     public int playerHealth;
+    public bool dead;
 
     public healthBar healthBar;
 
@@ -22,6 +23,10 @@ public class HealthController : MonoBehaviour
     public void DamageTaken(int damage)
     {
         playerHealth -= damage;
+        if (playerHealth <= 0)
+        {
+            dead = true;
+        }
         UpdateHealthUI();
         
         healthBar.SetHealth(playerHealth);

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.PlayerLoop;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -27,15 +23,12 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-
         mInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         highlighter = GameObject.FindGameObjectWithTag("Highlighter");
         highlighter.transform.position = mInventory.slots[0].transform.position;
 
-
         dashTime = dashDuration;
         dashing = false;
-        
     }
 
 
@@ -47,18 +40,54 @@ public class Player : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Used for physics calculation as this is consitent 
-    /// </summary>
-    void FixedUpdate()
-    {
-    }
-
     public void ProcessInput()
     {
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
 
+        SelectInventory();
+
+        if (moveDirection.x > 0 && !playerSprite.flipX) playerSprite.flipX = true;
+        else if (moveDirection.x < 0 && playerSprite) playerSprite.flipX = false;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            dashing = true;
+        }
+
+        if (dashing)
+        {
+            if (dashTime > 0)
+            {
+                Dash();
+                dashTime -= Time.deltaTime;
+            }
+            else
+            {
+                dashTime = dashDuration;
+                dashing = false;
+            }
+        }
+        else if (!dashing)
+        {
+            Move();
+        }
+    }
+
+    public void Move()
+    {
+        rigidgebody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
+    }
+
+    public void Dash()
+    {
+        FindObjectOfType<AudioManager>().Play("PlayerDash");
+        transform.Translate(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, 0);
+    }
+
+
+    private void SelectInventory()
+    {
         if (Input.GetKey("1"))
         {
             for (int i = 0; i < mInventory.slots.Length; i++)
@@ -69,8 +98,6 @@ public class Player : MonoBehaviour
             int x = 0;
             mInventory.isSelected[x] = true;
             highlighter.transform.position = mInventory.slots[x].transform.position;
-
-
         }
 
         if (Input.GetKey("2"))
@@ -120,45 +147,7 @@ public class Player : MonoBehaviour
             mInventory.isSelected[x] = true;
             highlighter.transform.position = mInventory.slots[x].transform.position;
         }
-
-        if (moveDirection.x > 0 && !playerSprite.flipX) playerSprite.flipX = true;
-        else if (moveDirection.x < 0 && playerSprite) playerSprite.flipX = false;
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            dashing = true;
-        }
-
-        if (dashing)
-        {
-            if (dashTime > 0)
-            {
-                Dash();
-                dashTime -= Time.deltaTime;
-            }
-            else
-            {
-                dashTime = dashDuration;
-                dashing = false;
-            }
-        }
-        else if (!dashing)
-        {
-            Move();
-        }
     }
-
-    public void Move()
-    {
-        rigidgebody.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
-    }
-
-    public void Dash()
-    {
-        transform.Translate(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, 0);
-    }
-
 
 
 

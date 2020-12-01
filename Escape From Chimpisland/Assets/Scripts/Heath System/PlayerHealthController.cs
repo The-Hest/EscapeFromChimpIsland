@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerHealthController : MonoBehaviour
 {
@@ -19,7 +18,12 @@ public class PlayerHealthController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-
+        Debug.Log($"{healthController.playerHealth} {healthController.dead}");
+        if (healthController.dead)
+        {
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

@@ -27,7 +27,7 @@ TagManager:
   - Ground
   - Wall
   - Enemy
-  - 
+  - Shadow
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Walls
     uniqueID: 3950034009
+    locked: 0
+  - name: Shadow
+    uniqueID: 3659534563
     locked: 0
