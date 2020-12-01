@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         rand = new System.Random();
-        enemiesToSpawn = rand.Next(1, 7);
+        enemiesToSpawn = rand.Next(1, 3);
         Debug.Log(transform.position);
 
         for (int i = 0; i <= enemiesToSpawn; i++)
