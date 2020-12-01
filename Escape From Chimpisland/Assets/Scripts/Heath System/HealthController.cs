@@ -8,16 +8,24 @@ public class HealthController : MonoBehaviour
     public Text healthUIText;
     public int playerHealth;
 
+    public healthBar healthBar;
+
     public void HealingReceived(int healing)
     {
         playerHealth += healing;
         UpdateHealthUI();
+
+        healthBar.SetHealth(playerHealth);
+
     }
 
     public void DamageTaken(int damage)
     {
         playerHealth -= damage;
         UpdateHealthUI();
+        
+        healthBar.SetHealth(playerHealth);
+
     }
 
     /// <summary>

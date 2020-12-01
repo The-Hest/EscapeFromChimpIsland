@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
-  startAttacking: 1
+  startAttacking: 2
   stopMove: 5
 --- !u!114 &-5897745685448475190
 MonoBehaviour:
