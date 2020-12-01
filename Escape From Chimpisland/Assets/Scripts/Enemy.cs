@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float attackingDistance;
     public Rigidbody2D enemyrigidgebody;
     public DamageController damageController;
-    Collider2D collision;
+
     private Transform target;
 
     // Start is called before the first frame update
@@ -22,9 +22,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         Enemymovement();
-        OnTriggerEnter2D(collision);
     }
 
     void Enemymovement()
@@ -47,7 +46,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-   void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
