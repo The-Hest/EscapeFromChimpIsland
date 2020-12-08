@@ -15,6 +15,7 @@ public class Dialog : MonoBehaviour
     public List<string> sentences;
     public float typingSpeed;
     public bool interacting { get; private set; }
+    public bool finishedTalking { get; private set; }
 
     private int _index;
     private bool _displayed = false;
@@ -36,6 +37,7 @@ public class Dialog : MonoBehaviour
             continueDisplay.text = "'Enter' to continue";
         }
 
+        // If the sentence is completed and the player is til in range get next line
         if (_displayed && interacting)
         {
             if (Input.GetKeyDown(KeyCode.Return))
@@ -67,6 +69,7 @@ public class Dialog : MonoBehaviour
     {
         _index = 0;
         interacting = true;
+        finishedTalking = false;
         StartCoroutine(Type());
     }
 
@@ -83,6 +86,7 @@ public class Dialog : MonoBehaviour
         continueDisplay.text = "";
         textDisplay.text = "";
         interacting = false;
+        finishedTalking = true;
         _index = 0;
     }
 }

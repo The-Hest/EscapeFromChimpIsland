@@ -44,6 +44,12 @@ public class ShowDialogBouble : MonoBehaviour
                     _dialog.StartDialog();
                 }
 
+                // Racoon has finished talking but player is still in range of interacting
+                if (_dialog.finishedTalking && Vector2.Distance(racoon.transform.position, racoon.player.transform.position) < racoon.interactDistance)
+                {
+                    _dialog.continueDisplay.text = "'Enter' to talk";
+                }
+
                 // Player moved too far away form racoon to interact
                 if (Vector2.Distance(racoon.transform.position, racoon.player.transform.position) > racoon.interactDistance)
                 {
