@@ -1,39 +1,83 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemieList;
+    public List<GameObject> spawnList;
 
     private float randX;
     private float randY;
     private Vector2 spawnPoint;
-    private System.Random rand;
-    private int enemiesToSpawn;
 
     // Start is called before the first frame update
     void Start()
     {
-        rand = new System.Random();
-        enemiesToSpawn = rand.Next(1, 3);
-        Debug.Log(transform.position);
+        var obj = SpawnObjectFromDistribution();
+        var objectsToSpawn = GetAmountOfEnemiesToSpawn(obj);
 
-        for (int i = 0; i <= enemiesToSpawn; i++)
+        for (int i = 0; i <= objectsToSpawn; i++)
         {
-            randX = Random.Range(8.5f, -8.5f); //Et rums bredde i unity units
-            randY = Random.Range(2.5f, -3.5f); //Et rums højde i unity units
-
+            if (obj.CompareTag("Enemy"))    
+            {
+                // Enemies spawn random in room
+                randX = Random.Range(5.5f, -5.5f); //Et rums bredde i unity units
+                randY = Random.Range(1.5f, -1.5f); //Et rums højde i unity units
+            }
+            else
+            {
+                // Chest spawn in center
+                randX = 0;
+                randY = 0;
+            }
             spawnPoint = new Vector2(randX + transform.position.x, randY + transform.position.y);
-            Instantiate(enemieList, spawnPoint, Quaternion.identity);
-
+            Instantiate(obj, spawnPoint, Quaternion.identity);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private GameObject SpawnObjectFromDistribution()
     {
-        
+        /// -----------------------------
+        /// |  Object       |  Chance   |
+        /// -----------------------------
+        /// |  Chest        |    5%     |
+        /// -----------------------------
+        /// |  Enemy1       |   10%     |  
+        /// -----------------------------
+        /// |  Enemy2       |   15%     |
+        /// -----------------------------
+        /// |  ......       |   ..%     |
+        /// -----------------------------
+
+        var rand = new System.Random().Next(0, 100);
+        if (rand < 5)
+        {
+            // Spawn chest
+            return spawnList[0];
+        }
+        if (rand > 5 && rand < 15)
+        {
+            return spawnList[0];
+        }
+        else if (rand >= 15 && rand < 30)
+        {
+            return spawnList[1];
+        }
+        else
+        {
+            return spawnList[0];
+        }
+    }
+    private int GetAmountOfEnemiesToSpawn(GameObject enemy)
+    {
+        switch (enemy.name)
+        {
+            case "Enemy":
+                return new System.Random().Next(2, 4);
+            case "FirstEnemy":
+                return new System.Random().Next(4, 7);
+            default:
+                return 2;
+        }
     }
 }

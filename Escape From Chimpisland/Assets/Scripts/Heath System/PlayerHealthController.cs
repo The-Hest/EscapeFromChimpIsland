@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Audio;
 
 public class PlayerHealthController : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class PlayerHealthController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        Debug.Log($"{healthController.playerHealth} {healthController.dead}");
         if (healthController.dead)
         {
             FindObjectOfType<AudioManager>().Play("PlayerDeath");
@@ -36,9 +34,25 @@ public class PlayerHealthController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy"))
+        var collisionObj = collision.gameObject; 
+        int dmg;
+        if (collisionObj.tag.Equals("Enemy"))
         {
-            healthController.DamageTaken(damageController.damage);
+            switch (collisionObj.name.Replace("(Clone)", ""))
+            {
+                case "Enemy":
+                    dmg = collisionObj.GetComponent<Enemy>().damageController.damage;
+                    Debug.Log($"hej {collisionObj.name.Replace("(Clone)", "")}");
+                    break;
+                case "FirstEnemy":
+                    dmg = collisionObj.GetComponent<BabyOrge>().damageController.damage;
+                    Debug.Log($"hej {collisionObj.name.Replace("(Clone)", "")}");
+                    break;
+                default:
+                    dmg = 1;
+                    break;
+            }
+            healthController.DamageTaken(dmg);
         }
     }
 }

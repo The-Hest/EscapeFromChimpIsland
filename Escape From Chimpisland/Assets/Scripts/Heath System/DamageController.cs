@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamageController : MonoBehaviour
 {
     public int damage;
+    public List<GameObject> Enemies;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

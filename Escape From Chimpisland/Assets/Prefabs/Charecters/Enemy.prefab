@@ -155,7 +155,7 @@ MonoBehaviour:
   speed: 2
   attackingDistance: 5
   enemyrigidgebody: {fileID: 6109546557287166280}
-  damageController: {fileID: 0}
+  damageController: {fileID: 6109546557287166278}
 --- !u!114 &6109546557287166278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  Enemies: []
 --- !u!95 &6109546557287166284
 Animator:
   serializedVersion: 3
