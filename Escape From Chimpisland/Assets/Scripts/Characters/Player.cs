@@ -7,19 +7,16 @@ public class Player : MonoBehaviour
     public float dashDuration;
     public Rigidbody2D rigidgebody;
     public SpriteRenderer playerSprite;
+    public ParticleSystem dashParticles;
    
 
 
     private Vector2 moveDirection = new Vector2();
-    private Vector2 currentVelocity = new Vector2();
     private float dashTime;
     private bool dashing;
 
     private Inventory mInventory;
     private GameObject highlighter;
-
-
-
 
     private void Start()
     {
@@ -47,8 +44,16 @@ public class Player : MonoBehaviour
 
         SelectInventory();
 
-        if (moveDirection.x > 0 && !playerSprite.flipX) playerSprite.flipX = true;
-        else if (moveDirection.x < 0 && playerSprite) playerSprite.flipX = false;
+        if (moveDirection.x > 0 && !playerSprite.flipX)
+        {
+            playerSprite.flipX = true;
+            dashParticles.transform.rotation = Quaternion.Euler(0f,0f, 180f);
+        }
+        else if (moveDirection.x < 0 && playerSprite)
+        {
+            playerSprite.flipX = false;
+            dashParticles.transform.rotation = Quaternion.Euler(0f,0f, 0f);
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -82,10 +87,9 @@ public class Player : MonoBehaviour
     public void Dash()
     {
         FindObjectOfType<AudioManager>().Play("PlayerDash");
-
         transform.Translate(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, 0);
+        dashParticles.Play();
     }
-
 
     private void SelectInventory()
     {
@@ -149,9 +153,4 @@ public class Player : MonoBehaviour
             highlighter.transform.position = mInventory.slots[x].transform.position;
         }
     }
-
-
-
-    
-
 }
