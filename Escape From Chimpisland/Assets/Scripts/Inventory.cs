@@ -18,7 +18,21 @@ public class Inventory : MonoBehaviour
 
         isFull[x] = false;
 
+    }
 
+    public void UseAnItem(int x)
+    {
+        foreach (Transform child in slots[x].transform)
+        {
+            if (child.CompareTag("healthPotion"))
+            {
+                child.GetComponent<UseHealthPotion>().Use();
+            }
+
+            Destroy(child.gameObject);
+            isFull[x] = false;
+            
+        }
     }
 
 

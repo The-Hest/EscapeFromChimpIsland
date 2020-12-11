@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private float dashTime;
     private bool dashing;
 
-    private int numericPressed;
+    private int numericPressed = 0;
     private Inventory mInventory;
     private GameObject highlighter;
     private string currentItem;
@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
         mInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         highlighter = GameObject.FindGameObjectWithTag("Highlighter");
         highlighter.transform.position = mInventory.slots[0].transform.position;
+
+        SelectSlotOnStart();
 
         dashTime = dashDuration;
         dashing = false;
@@ -178,5 +180,26 @@ public class Player : MonoBehaviour
         {
             mInventory.DropItem(numericPressed-1);
         }
+
+        if (Input.GetKey(KeyCode.U))
+        {
+            mInventory.UseAnItem(numericPressed - 1);
+        }
+    }
+
+    public void SelectSlotOnStart()
+    {
+        numericPressed = 1;
+
+        for (int i = 0; i < mInventory.slots.Length; i++)
+        {
+            mInventory.isSelected[i] = false;
+        }
+
+        int x = 0;
+        mInventory.isSelected[x] = true;
+        highlighter.transform.position = mInventory.slots[x].transform.position;
+        currentItem = mInventory.getItem(x);
+        print("Player holding " + currentItem);
     }
 }

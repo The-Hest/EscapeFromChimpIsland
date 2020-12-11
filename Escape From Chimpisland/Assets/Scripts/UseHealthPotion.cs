@@ -16,8 +16,11 @@ public class UseHealthPotion : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Use()
+    public void Use()
     {
+
+        //Tilgå healthController her og + ønsket health
+        //Evt tilføj lyd her hvis det er sådan man gør
         Instantiate(effect, player.position, Quaternion.identity);
         Destroy(gameObject);
     }
