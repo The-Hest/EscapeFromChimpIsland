@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     private Inventory mInventory;
     private GameObject highlighter;
+    private string currentItem;
 
     private void Start()
     {
@@ -103,6 +104,8 @@ public class Player : MonoBehaviour
             int x = 0;
             mInventory.isSelected[x] = true;
             highlighter.transform.position = mInventory.slots[x].transform.position;
+            currentItem = mInventory.getItem(x);
+            print("Player holding " + currentItem);
         }
 
         if (Input.GetKey("2"))
@@ -115,6 +118,8 @@ public class Player : MonoBehaviour
             int x = 1;
             mInventory.isSelected[x] = true;
             highlighter.transform.position = mInventory.slots[x].transform.position;
+            currentItem = mInventory.getItem(x);
+            print("Player holding " + currentItem);
         }
 
         if (Input.GetKey("3"))
@@ -127,6 +132,8 @@ public class Player : MonoBehaviour
             int x = 2;
             mInventory.isSelected[x] = true;
             highlighter.transform.position = mInventory.slots[x].transform.position;
+            currentItem = mInventory.getItem(x);
+            print("Player holding " + currentItem);
         }
 
         if (Input.GetKey("4"))
@@ -139,6 +146,8 @@ public class Player : MonoBehaviour
             int x = 3;
             mInventory.isSelected[x] = true;
             highlighter.transform.position = mInventory.slots[x].transform.position;
+            currentItem = mInventory.getItem(x);
+            print("Player holding " + currentItem);
         }
 
         if (Input.GetKey("5"))
@@ -151,6 +160,8 @@ public class Player : MonoBehaviour
             int x = 4;
             mInventory.isSelected[x] = true;
             highlighter.transform.position = mInventory.slots[x].transform.position;
+            currentItem = mInventory.getItem(x);
+            print("Player holding " + currentItem);
         }
     }
 }

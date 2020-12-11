@@ -15,6 +15,10 @@ TagManager:
   - Slot
   - Highlighter
   - Enemy2
+  - Bullet
+  - energyPotion
+  - healthPotion
+  - skullArt
   layers:
   - Default
   - TransparentFX
