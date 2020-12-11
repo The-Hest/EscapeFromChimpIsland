@@ -1699,6 +1699,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7186583616984652975, guid: 459f1a87e9458484dbde63ac7024ad48, type: 3}
   m_PrefabInstance: {fileID: 7186583617342387371}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &2100518824 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5180837691611417736, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
+  m_PrefabInstance: {fileID: 5180837691971106801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2141965501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4789649506829111018, guid: 371af4796e9d76e4e83589e6eaa48e82, type: 3}
@@ -1831,6 +1836,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 424066110984271621, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1951618022}
+    - target: {fileID: 424066110984271621, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 2100518824}
     - target: {fileID: 1505448132291975244, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
       propertyPath: m_RenderMode
       value: 0
