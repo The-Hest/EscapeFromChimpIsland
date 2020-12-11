@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 532737736549778270}
   - component: {fileID: 6090316173037803763}
   - component: {fileID: 4407797774026863728}
+  - component: {fileID: -3424643690943378352}
   m_Layer: 5
   m_Name: EnergyPotionButton
   m_TagString: energyPotion
@@ -119,3 +120,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-3424643690943378352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7540468549738804585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81e7d464d4529c46bf67fa724d8222a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 8537140519816533252, guid: 2bccdde016f3c8048b658acd4e035ffd, type: 3}

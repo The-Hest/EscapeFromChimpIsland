@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private float dashTime;
     private bool dashing;
 
+    private int numericPressed;
     private Inventory mInventory;
     private GameObject highlighter;
     private string currentItem;
@@ -95,7 +96,9 @@ public class Player : MonoBehaviour
     private void SelectInventory()
     {
         if (Input.GetKey("1"))
-        {
+        { 
+            numericPressed = 1;
+        
             for (int i = 0; i < mInventory.slots.Length; i++)
             {
                 mInventory.isSelected[i] = false;
@@ -110,6 +113,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey("2"))
         {
+            numericPressed = 2;
+        
             for (int i = 0; i < mInventory.slots.Length; i++)
             {
                 mInventory.isSelected[i] = false;
@@ -123,7 +128,9 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKey("3"))
-        {
+        { 
+            numericPressed = 3;
+        
             for (int i = 0; i < mInventory.slots.Length; i++)
             {
                 mInventory.isSelected[i] = false;
@@ -137,7 +144,9 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKey("4"))
-        {
+        { 
+            numericPressed = 4;
+        
             for (int i = 0; i < mInventory.slots.Length; i++)
             {
                 mInventory.isSelected[i] = false;
@@ -152,6 +161,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey("5"))
         {
+            numericPressed = 5;
             for (int i = 0; i < mInventory.slots.Length; i++)
             {
                 mInventory.isSelected[i] = false;
@@ -162,6 +172,11 @@ public class Player : MonoBehaviour
             highlighter.transform.position = mInventory.slots[x].transform.position;
             currentItem = mInventory.getItem(x);
             print("Player holding " + currentItem);
+        }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            mInventory.DropItem(numericPressed-1);
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7105314232591006411}
   - component: {fileID: 5014346133711616521}
   - component: {fileID: 7761465420841215858}
+  - component: {fileID: 2401224541691919028}
   m_Layer: 5
   m_Name: BombButton
   m_TagString: Untagged
@@ -119,3 +120,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2401224541691919028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702385149065069802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81e7d464d4529c46bf67fa724d8222a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 4090049572289492320, guid: 2175ef9963280fc4b941511daf52584c, type: 3}

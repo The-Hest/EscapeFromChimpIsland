@@ -8,9 +8,21 @@ public class Inventory : MonoBehaviour
     public GameObject[] slots;
     public bool[] isSelected;
 
+    public void DropItem(int x)
+    {
+        foreach (Transform child in slots[x].transform)
+        {
+            child.GetComponent<RespawnItem>().SpawnDroppedItem();
+            GameObject.Destroy(child.gameObject);
+        }
+
+        isFull[x] = false;
 
 
-    public string getItem(int x)
+    }
+
+
+public string getItem(int x)
     {
         string nameOfItem = "no item";
 
