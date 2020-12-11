@@ -24,8 +24,8 @@ public class GunAim : MonoBehaviour
 
 
         Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg ;
+        rb.rotation = angle - 90;
         Vector2 gunPos = mousePos - rb.position;
 
         
@@ -35,17 +35,6 @@ public class GunAim : MonoBehaviour
             var newPosition = playerRb.position;
             newPosition.x += x;
             newPosition.y += y;
-            rb.position = newPosition;
-
-            if (newPosition.x < playerRb.position.x)
-            {
-                Gun.flipY = true;
-        
-            }
-            else
-            {
-                Gun.flipY = false;
-            }
-        
+            rb.position = newPosition;      
     }
 }
