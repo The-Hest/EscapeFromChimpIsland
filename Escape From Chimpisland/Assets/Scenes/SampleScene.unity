@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &275880821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7859128531101505904, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
+  m_PrefabInstance: {fileID: 7859128529170574837}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &362937645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,9 +270,9 @@ RectTransform:
   m_Father: {fileID: 1980882022}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -364.9, y: 151.09}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 174, y: -20}
   m_SizeDelta: {x: 191.45367, y: 40.819122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495082104
@@ -451,42 +462,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f834a46b97cc894c9b3d14972ea6031, type: 3}
---- !u!1 &999567860 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3147535095537534330, guid: 4f834a46b97cc894c9b3d14972ea6031, type: 3}
-  m_PrefabInstance: {fileID: 999567859}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &999567861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999567860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fb09b3bddeb33945bc62428851dab1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: PlayerDash
-    clip: {fileID: 8300000, guid: 5fff6547ea22e1d48b164bf7a0259f05, type: 3}
-    volume: 0.3
-    pitch: 0.75
-    loop: 0
-    source: {fileID: 0}
-  - name: FastSwordSwing
-    clip: {fileID: 8300000, guid: 971bf2e0a7c58aa4db43c1f42e19afe0, type: 3}
-    volume: 0.3
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: PlayerDeath
-    clip: {fileID: 8300000, guid: 1839fc9c3407cee43a769d4ad58e2a4d, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
 --- !u!1 &1080245608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1714,17 +1689,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 7859128530802669397, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
   m_PrefabInstance: {fileID: 7859128529170574837}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1965618309 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7859128531101505904, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
-  m_PrefabInstance: {fileID: 7859128529170574837}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1980882022 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7186583617971849365, guid: 459f1a87e9458484dbde63ac7024ad48, type: 3}
@@ -2262,7 +2226,7 @@ PrefabInstance:
     - target: {fileID: 5180837691611417742, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
       propertyPath: healthUIText
       value: 
-      objectReference: {fileID: 1965618309}
+      objectReference: {fileID: 275880821}
     - target: {fileID: 5180837691611417742, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
       propertyPath: healthBar
       value: 
@@ -2505,11 +2469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7859128531101505905, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -328
+      value: 216.99998
       objectReference: {fileID: 0}
     - target: {fileID: 7859128531101505905, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 120.5
+      value: -53
       objectReference: {fileID: 0}
     - target: {fileID: 7859128531101505905, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2518,6 +2482,22 @@ PrefabInstance:
     - target: {fileID: 7859128531101505905, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
       propertyPath: m_SizeDelta.x
       value: 93.77884
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859128531101505905, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859128531101505905, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859128531101505905, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859128531101505905, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e02497924f1374e9646e3d370f5214, type: 3}
