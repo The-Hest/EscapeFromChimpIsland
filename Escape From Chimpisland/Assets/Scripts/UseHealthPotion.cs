@@ -6,6 +6,7 @@ public class UseHealthPotion : MonoBehaviour
 {
 
     public GameObject effect;
+    public GameObject healthController;
     private Transform player;
 
 
@@ -19,9 +20,10 @@ public class UseHealthPotion : MonoBehaviour
     public void Use()
     {
 
-        //Tilgå healthController her og + ønsket health
         //Evt tilføj lyd her hvis det er sådan man gør
+        player.GetComponent<HealthController>().HealingReceived(50);
         Instantiate(effect, player.position, Quaternion.identity);
         Destroy(gameObject);
+        
     }
 }
