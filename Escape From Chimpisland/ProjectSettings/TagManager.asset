@@ -15,6 +15,7 @@ TagManager:
   - Slot
   - Highlighter
   - Enemy2
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -28,8 +29,8 @@ TagManager:
   - Wall
   - Enemy
   - Shadow
-  - 
-  - 
+  - RoomDetails
+  - LowerWall
   - 
   - 
   - 
@@ -54,6 +55,12 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2434851925
+    locked: 0
+  - name: LowerWall
+    uniqueID: 14755375
+    locked: 0
+  - name: RoomDetails
+    uniqueID: 1605027607
     locked: 0
   - name: Walls
     uniqueID: 3950034009

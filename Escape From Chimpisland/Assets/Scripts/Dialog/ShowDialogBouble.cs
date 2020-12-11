@@ -6,9 +6,7 @@ public class ShowDialogBouble : MonoBehaviour
     public Animator animator;
     public GameObject dialogManager;
 
-    private Dialog _dialog;
-    private float _interactionDistance;
-   
+    private Dialog _dialog;   
 
     private enum DialogStates
     {
@@ -39,15 +37,15 @@ public class ShowDialogBouble : MonoBehaviour
                 }
                 break;
             case DialogStates.Open:
-                if (Input.GetKeyDown(KeyCode.Return) && !_dialog.interacting)
-                {
-                    _dialog.StartDialog();
-                }
-
                 // Racoon has finished talking but player is still in range of interacting
                 if (_dialog.finishedTalking && Vector2.Distance(racoon.transform.position, racoon.player.transform.position) < racoon.interactDistance)
                 {
-                    _dialog.continueDisplay.text = "'Enter' to talk";
+                    _dialog.interactText.text = "'Enter' to talk";
+                }
+
+                if (Input.GetKeyDown(KeyCode.Return) && !_dialog.interacting)
+                {
+                    _dialog.StartDialog();
                 }
 
                 // Player moved too far away form racoon to interact
@@ -58,12 +56,13 @@ public class ShowDialogBouble : MonoBehaviour
                 break;
             case DialogStates.Pop:
                 animator.SetTrigger("pop");
-                _dialog.continueDisplay.text = "'Enter' to talk";
+                _dialog.interactText.text = "'Enter' to talk";
                 state = DialogStates.Open;
                 break;
             case DialogStates.Close:
                 animator.SetTrigger("close");
                 _dialog.CloseDialog();
+                _dialog.interactText.text = "";
                 state = DialogStates.Gone;
                 break;
         }

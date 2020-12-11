@@ -87,8 +87,8 @@ public class Player : MonoBehaviour
     public void Dash()
     {
         FindObjectOfType<AudioManager>().Play("PlayerDash");
-        transform.Translate(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, 0);
         dashParticles.Play();
+        transform.Translate(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, 0);
     }
 
     private void SelectInventory()

@@ -5,7 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public ParticleSystem BulletSplash;
+    public ParticleSystem bulletSplash;
+
     void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Enemy")
@@ -15,12 +16,9 @@ public class Bullet : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(BulletSplash, rb.position, Quaternion.identity);
-        
-          Destroy(gameObject);
-          
+        Instantiate(bulletSplash, rb.position, Quaternion.identity);
 
-        
+        Destroy(gameObject);        
     }
     
 }

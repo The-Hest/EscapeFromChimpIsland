@@ -43,10 +43,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e8831c6058ae141a5de2127948a3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDisplay: {fileID: 0}
-  continueDisplay: {fileID: 0}
+  fieldText: {fileID: 0}
+  continueText: {fileID: 0}
+  interactText: {fileID: 0}
+  dialogBackground: {fileID: 0}
   sentences:
-  - Hej med dig
-  - Du er grim
-  - :))))
-  typingSpeed: 0.01
+  - Hello there fellow!
+  - I see you have entered the dungeon
+  - If you dont know how to navigate around here let me tell you...
+  - If you haven't already pick up a weapon next to you by walking over it!
+  - To aim use your mouse and press 'Left Mouse Key' to shoot
+  - This will be useful as the dungeon is home to a lot of hostile creatures
+  - 'By pressing ''Left Shift'' you can dash to gain some distance from your opponent '
+  - In the top left you can find your health! Dont let this run out!..
+  - Potions can be found on your journey giving you all sorts of powers
+  - Walking by them will equip them in your inventory
+  - Your inventory consists of 5 slots
+  - Press '1' through '5' to navigate these
+  - The highlighted item can be dropped by pressing 'Q' and used by pressing 'E'
+  - I think you are ready! Walk up the dungeon to find your first opponent!
+  - Once defated you will find a ladder bringing you to the heart of the dungeon!
+  - Cyran owns this place, He's deep in the dungeon waiting for a worthy opponent
+  - Now go be the hero of your own story
+  - Go! Before he finds out I helped you!
+  typingSpeed: 20

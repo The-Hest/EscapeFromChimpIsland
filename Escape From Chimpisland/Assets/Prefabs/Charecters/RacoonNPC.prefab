@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 6891120328782728521}
   - component: {fileID: 6891120328782728524}
   - component: {fileID: 6891120328782728523}
+  - component: {fileID: 1928073312447993562}
+  - component: {fileID: 2225969083843079185}
+  - component: {fileID: 4740906196959030707}
   m_Layer: 0
   m_Name: RacoonNPC
   m_TagString: Untagged
@@ -74,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 7e3c00f40fa3dba478592359b6bbffec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41167760deee4a94b9ac4ca75eb6715d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,6 +122,69 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1928073312447993562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6891120328782728520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2232a4ce5572d499798c73d639f8cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6891120328782728524}
+  player: {fileID: 0}
+  interactDistance: 2.5
+  firstEncounter: 0
+--- !u!50 &2225969083843079185
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6891120328782728520}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &4740906196959030707
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6891120328782728520}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0051084757, y: 0.010216713}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1.3333334, y: 1.3333334}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.88761353, y: 1.0204334}
+  m_EdgeRadius: 0
 --- !u!1 &8795623418786401695
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,8 +302,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   racoon: {fileID: 0}
-  player: {fileID: 0}
-  interactDistance: 2.5
   animator: {fileID: 3402201448991930463}
   dialogManager: {fileID: 0}
 --- !u!111 &7993688171017579976

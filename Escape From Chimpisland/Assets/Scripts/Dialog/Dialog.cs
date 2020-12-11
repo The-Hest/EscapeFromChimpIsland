@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// !!! NOTICE !!!
@@ -10,8 +11,10 @@ using TMPro;
 
 public class Dialog : MonoBehaviour
 {
-    public TextMeshProUGUI textDisplay;
-    public TextMeshProUGUI continueDisplay;
+    public TextMeshProUGUI fieldText;
+    public TextMeshProUGUI continueText;
+    public TextMeshProUGUI interactText;
+    public Image dialogBackground;
     public List<string> sentences;
     public float typingSpeed;
     public bool interacting { get; private set; }
@@ -19,22 +22,29 @@ public class Dialog : MonoBehaviour
 
     private int _index;
     private bool _displayed = false;
+
+
     private IEnumerator Type()
     {
         foreach (var letter in sentences[_index].ToCharArray())
         {
-            textDisplay.text += letter;
+            fieldText.text += letter;
             yield return new WaitForSeconds(1 / typingSpeed); // Wait an amount of seconds before typing new letters in our dialog
         }
+    }
+
+    private void Start()
+    {
+        dialogBackground.enabled = false;
     }
 
     private void Update()
     {
         // Check if the full text has been displayed
-        if (textDisplay.text == sentences[_index] && interacting)
+        if (fieldText.text == sentences[_index] && interacting)
         {
             _displayed = true;
-            continueDisplay.text = "'Enter' to continue";
+            continueText.text = "'Enter' to continue";
         }
 
         // If the sentence is completed and the player is til in range get next line
@@ -43,7 +53,7 @@ public class Dialog : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 _displayed = false;
-                continueDisplay.text = "";
+                continueText.text = "";
                 GetNextSentence();
             }
         }
@@ -56,7 +66,7 @@ public class Dialog : MonoBehaviour
         {
             _index++;
 
-            textDisplay.text = ""; // Reset display
+            fieldText.text = ""; // Reset display
             StartCoroutine(Type());
         }
         else
@@ -68,25 +78,35 @@ public class Dialog : MonoBehaviour
     public void StartDialog()
     {
         _index = 0;
+        ShowField(true);
         interacting = true;
         finishedTalking = false;
         StartCoroutine(Type());
     }
 
-    public void StartFirstDialog()
-    {
-        _index = 1;
-        interacting = true;
-        StartCoroutine(Type());
-
-    }
-
     public void CloseDialog()
     {
-        continueDisplay.text = "";
-        textDisplay.text = "";
+        ShowField(false);
         interacting = false;
         finishedTalking = true;
         _index = 0;
+    }
+
+    public void ShowField(bool show)
+    {
+        if (show)
+        {
+            interactText.text = "";
+            dialogBackground.enabled = true;
+        }
+        else
+        {
+            Debug.Log("Even more noo??");
+            continueText.text = "";
+            fieldText.text = "";
+            dialogBackground.enabled = false;
+
+        }
+        
     }
 }
