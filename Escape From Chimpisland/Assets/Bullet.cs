@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour
     public ParticleSystem bulletSplash;
     public DamageController damageController;
 
+
+
+
     void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Enemy")

@@ -20,6 +20,7 @@ TagManager:
   - healthPotion
   - skullArt
   - Weapon
+  - Boss
   layers:
   - Default
   - TransparentFX
