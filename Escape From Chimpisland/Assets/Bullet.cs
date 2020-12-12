@@ -7,6 +7,9 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
     public ParticleSystem bulletSplash;
 
+
+
+
     void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Enemy")
