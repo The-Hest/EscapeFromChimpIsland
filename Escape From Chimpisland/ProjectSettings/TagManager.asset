@@ -19,6 +19,7 @@ TagManager:
   - energyPotion
   - healthPotion
   - skullArt
+  - Weapon
   layers:
   - Default
   - TransparentFX
