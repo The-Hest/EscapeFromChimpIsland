@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6109546557287166278}
   - component: {fileID: 6109546557287166284}
   - component: {fileID: 6109546557287166285}
+  - component: {fileID: 3578389420462722237}
+  - component: {fileID: 869202872023802005}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -82,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2673001056590810802, guid: 7ea3ae6ffd8fcbc47a600ed23d1fc656, type: 3}
+  m_Sprite: {fileID: 603979391230035031, guid: 84cbe76baf7c18841ad1e6dff2d51a2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,18 +129,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.024990797, y: -0.10308796}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 1.3333334}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.95}
+  m_Size: {x: 0.95615816, y: 0.7438241}
   m_EdgeRadius: 0
 --- !u!114 &6109546557287166279
 MonoBehaviour:
@@ -178,7 +180,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6109546557287166276}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 37591c78c1838e441905c53799c2617e, type: 2}
   m_CullingMode: 0
@@ -196,7 +198,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6109546557287166276}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: e322e21a43d4f3546bab5820f2f8ad69, type: 2}
   m_Animations: []
@@ -204,3 +206,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &3578389420462722237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109546557287166276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142a2f5c3898d0d408b2f0766046fbbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  dead: 0
+--- !u!114 &869202872023802005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109546557287166276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b8af159413aa441853d8b46eeade71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthController: {fileID: 3578389420462722237}
+  damageController: {fileID: 0}

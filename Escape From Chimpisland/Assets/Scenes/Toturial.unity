@@ -836,10 +836,6 @@ PrefabInstance:
       propertyPath: sentences.Array.data[24]
       value: Now go be the hero of your own story
       objectReference: {fileID: 0}
-    - target: {fileID: 3281089551594198975, guid: 73524d5027f2955448802bb002ba12b2, type: 3}
-      propertyPath: typingSpeed
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73524d5027f2955448802bb002ba12b2, type: 3}
 --- !u!114 &1178173084 stripped

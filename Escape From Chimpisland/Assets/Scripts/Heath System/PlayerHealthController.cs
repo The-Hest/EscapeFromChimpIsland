@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealthController : MonoBehaviour
 {
@@ -6,12 +7,13 @@ public class PlayerHealthController : MonoBehaviour
     public DamageController damageController;
     public HealingController healingController;
 
+    public Text healthUIText;
+    public healthBar healthBar;
+
     // Start is called before the first frame update
     public void Start()
     {
-        healthController.playerHealth = 100;
-        healthController.UpdateHealthUI();
-
+        UpdateHealthUI();
     }
 
     // Update is called once per frame
@@ -29,12 +31,13 @@ public class PlayerHealthController : MonoBehaviour
         if (collider.gameObject.tag.Equals("Healing"))
         {
             healthController.HealingReceived(healingController.healing);
+            UpdateHealthUI();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var collisionObj = collision.gameObject; 
+        var collisionObj = collision.gameObject;
         int dmg;
         if (collisionObj.tag.Equals("Enemy"))
         {
@@ -53,6 +56,16 @@ public class PlayerHealthController : MonoBehaviour
                     break;
             }
             healthController.DamageTaken(dmg);
+            UpdateHealthUI();
         }
+    }
+
+    /// <summary>
+    /// Updates the Canvas with the Health Text element 
+    /// </summary>
+    private void UpdateHealthUI()
+    {
+        healthUIText.text = healthController.health.ToString();
+        healthBar.SetHealth(healthController.health);
     }
 }

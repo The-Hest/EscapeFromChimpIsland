@@ -101,7 +101,7 @@ public class Dialog : MonoBehaviour
         }
         else
         {
-            Debug.Log("Even more noo??");
+            StopAllCoroutines();
             continueText.text = "";
             fieldText.text = "";
             dialogBackground.enabled = false;

@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D enemyrigidgebody;
     public DamageController damageController;
 
-    private float _contact = 1.0f;
+    private float _contact = 0.95f;
     private Transform _target;
 
     // Start is called before the first frame update

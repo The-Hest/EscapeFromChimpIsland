@@ -13,6 +13,5 @@ public class DamageController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
-
     }
 }

@@ -1,43 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    public Text healthUIText;
-    public int playerHealth;
+    public int health;
+    public int maxHealth;
     public bool dead;
-
-    public healthBar healthBar;
 
     public void HealingReceived(int healing)
     {
-        playerHealth += healing;
-        UpdateHealthUI();
-
-        healthBar.SetHealth(playerHealth);
-
+        // Update health as long as its less than max
+        if (health + healing <= maxHealth)
+        {
+            health += healing;
+        }
+        else if(health < maxHealth && health + healing >= maxHealth)
+        {
+            health = maxHealth;
+        }
     }
 
     public void DamageTaken(int damage)
     {
-        playerHealth -= damage;
-        if (playerHealth <= 0)
+        health -= damage;
+        if (health <= 0)
         {
             dead = true;
         }
-        UpdateHealthUI();
-        
-        healthBar.SetHealth(playerHealth);
-
-    }
-
-    /// <summary>
-    /// Updates the Canvas with the Health Text element 
-    /// </summary>
-    public void UpdateHealthUI()
-    {
-        healthUIText.text = playerHealth.ToString();
     }
 }
