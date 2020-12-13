@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Enemy")
+        if (col.tag == "Enemy" || col.tag == "Boss")
         {
             col.gameObject.GetComponent<HealthController>().DamageTaken(damageController.damage);
             Destroy(col.gameObject);
