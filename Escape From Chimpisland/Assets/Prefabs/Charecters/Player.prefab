@@ -555,7 +555,7 @@ MonoBehaviour:
   - Tutorial
   - SampleScene
   - Boss1
-  bossEncounterLevel: 1
+  bossEncounterLevel: 5
   playerPos: {fileID: 5180837691611417738}
 --- !u!114 &5017631106274211791
 MonoBehaviour:
