@@ -21,6 +21,7 @@ TagManager:
   - skullArt
   - Weapon
   - Boss
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

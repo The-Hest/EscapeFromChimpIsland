@@ -7,17 +7,10 @@ public class smallFlameShoot : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
-    public bool facingRight;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (facingRight)
-        {
-        }
-        else
-        {
-        }
         InvokeRepeating("Shooting", 2.0f, 2.0f);
     }
 

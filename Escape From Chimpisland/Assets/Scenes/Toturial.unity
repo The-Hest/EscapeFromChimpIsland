@@ -262,6 +262,18 @@ PrefabInstance:
       propertyPath: bossEncounterLevel
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1972039707381537789, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972039707381537789, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180837691611417712, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5180837691611417737, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -628,6 +640,10 @@ PrefabInstance:
       propertyPath: sentences.Array.data[3]
       value: Wow! That is one hell of a staff you've got there, I've heard about
         those
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281089551594198975, guid: 73524d5027f2955448802bb002ba12b2, type: 3}
+      propertyPath: typingSpeed
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73524d5027f2955448802bb002ba12b2, type: 3}

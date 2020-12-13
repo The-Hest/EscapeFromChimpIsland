@@ -13,10 +13,12 @@ GameObject:
   - component: {fileID: 79135473283071634}
   - component: {fileID: 79135473283071644}
   - component: {fileID: 6825906543486983829}
-  - component: {fileID: 840281543104633420}
   - component: {fileID: 8505454216092211956}
   - component: {fileID: 4614600143719316632}
   - component: {fileID: 2182548431661346538}
+  - component: {fileID: 3026772554874923646}
+  - component: {fileID: 5524106492712308607}
+  - component: {fileID: 5325040583266379788}
   m_Layer: 10
   m_Name: Boss
   m_TagString: Boss
@@ -146,22 +148,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4018610140765184369, guid: 2072f23d566305145845b606942dd8fa, type: 3}
   bulletForce: 20
   speed: 2
---- !u!70 &840281543104633420
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79135473283071646}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0030443936, y: -0.015222073}
-  m_Size: {x: 0.20243077, y: 0.28955585}
-  m_Direction: 0
 --- !u!114 &8505454216092211956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +196,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthController: {fileID: 4614600143719316632}
+--- !u!61 &3026772554874923646
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79135473283071646}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028655171, y: -0.4642112}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.9375, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0778468, y: 0.6130937}
+  m_EdgeRadius: 0
+--- !u!61 &5524106492712308607
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79135473283071646}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0916965, y: 0.05157943}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.9375, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6995994, y: 0.7277131}
+  m_EdgeRadius: 0
+--- !u!61 &5325040583266379788
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79135473283071646}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.034386277, y: 0.45275113}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.9375, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0205364, y: 0.40677565}
+  m_EdgeRadius: 0
 --- !u!1 &6681603151823876250
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2058880699290302328}
+  - component: {fileID: 5716495347464416639}
   m_Layer: 10
   m_Name: Bossfirepoint
   m_TagString: Untagged
@@ -245,3 +310,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5716495347464416639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6681603151823876250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce70265d2861e404383f0645f2cb293d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2

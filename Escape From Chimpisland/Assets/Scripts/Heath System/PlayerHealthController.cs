@@ -26,38 +26,16 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag.Equals("Healing"))
-        {
-            healthController.HealingReceived(healingController.healing);
-            UpdateHealthUI();
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var collisionObj = collision.gameObject;
-        int dmg;
-        if (collisionObj.tag.Equals("Enemy"))
-        {
-            switch (collisionObj.name.Replace("(Clone)", ""))
-            {
-                case "Enemy":
-                    dmg = collisionObj.GetComponent<Enemy>().damageController.damage;
-                    Debug.Log($"hej {collisionObj.name.Replace("(Clone)", "")}");
-                    break;
-                case "FirstEnemy":
-                    dmg = collisionObj.GetComponent<BabyOrge>().damageController.damage;
-                    Debug.Log($"hej {collisionObj.name.Replace("(Clone)", "")}");
-                    break;
-                default:
-                    dmg = 1;
-                    break;
-            }
-            healthController.DamageTaken(dmg);
-            UpdateHealthUI();
-        }
+        // If hit by a none hostile object do nothing
+        if (!collision.collider.CompareTag("Enemy") || !collision.collider.CompareTag("Boss") || !collision.collider.CompareTag("EnemyBullet"))
+            return;
+
+
+        var dmg = collision.collider.GetComponent<DamageController>().damage;
+        healthController.DamageTaken(dmg);
+        UpdateHealthUI();
     }
 
     /// <summary>

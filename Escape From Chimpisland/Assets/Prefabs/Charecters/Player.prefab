@@ -70,7 +70,6 @@ MonoBehaviour:
   firePoint: {fileID: 5157015281998708307}
   bulletPrefab: {fileID: 4838158085766778051, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
   bulletForce: 20
-  Gun: {fileID: 0}
 --- !u!212 &102617411341310282
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -403,7 +402,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5180837691611417737}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77b11e22e115ba5479ca337b66456cf2, type: 3}
   m_Name: 

@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4838158085766778051, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBullet
+      objectReference: {fileID: 0}
     - target: {fileID: 5111934842061276793, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1
