@@ -7,13 +7,17 @@ public class Ladder : MonoBehaviour
 
     private GameObject _player;
     private GameObject _playerUI;
+    private GameObject _audioManager;
 
     private void Start()
     {
         _player = GameObject.Find("Player");
         _playerUI = GameObject.Find("PlayerUI");
+        _audioManager = GameObject.Find("AudioManager");
+
         DontDestroyOnLoad(_player);
         DontDestroyOnLoad(_playerUI);
+        DontDestroyOnLoad(_audioManager);
 
     }
 

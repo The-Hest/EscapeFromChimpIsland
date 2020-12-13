@@ -555,7 +555,7 @@ MonoBehaviour:
   - Tutorial
   - SampleScene
   - Boss1
-  bossEncounterLevel: 5
+  bossEncounterLevel: 1
   playerPos: {fileID: 5180837691611417738}
 --- !u!114 &5017631106274211791
 MonoBehaviour:
@@ -570,7 +570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 5180837691611417738}
-  healthController: {fileID: 5180837691611417713}
   gunAim: {fileID: 424066110984271621}
 --- !u!1 &6361291193552290920
 GameObject:

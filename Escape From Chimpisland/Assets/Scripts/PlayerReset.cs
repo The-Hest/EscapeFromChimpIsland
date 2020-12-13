@@ -8,11 +8,10 @@ public class PlayerReset : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerPos.position == Vector3.zero)
+        if (Vector3.Distance(playerPos.position, Vector3.zero) < 0.5)
         {
             // Needed af camera changes upon scene swap
             gunAim.LoadUICamera();
-            playerPos.position = Vector3.zero;
         }
     }
 }

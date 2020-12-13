@@ -258,6 +258,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1486274823707754833, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
+      propertyPath: bossEncounterLevel
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5180837691611417737, guid: c087aea6068f02f4993fd52a29b803d3, type: 3}
       propertyPath: m_Name
       value: Player

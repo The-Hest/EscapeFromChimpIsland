@@ -61,8 +61,6 @@ public class BossBehavior : MonoBehaviour
                         transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
                     else
                         ChargeAttack();
-
-                    print(_isCharging);
                 }
                 break;
             case Phase.Hurt:

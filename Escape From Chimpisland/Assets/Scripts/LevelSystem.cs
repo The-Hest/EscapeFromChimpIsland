@@ -15,14 +15,16 @@ public class LevelSystem : MonoBehaviour
     }
     public string GetNextLevel()
     {
-        if (_curretnLevel >= 0 && _curretnLevel < bossEncounterLevel)
+        // Reset Player position
+        playerPos.position = Vector3.zero;
+        if (_curretnLevel != bossEncounterLevel)
         {
             _curretnLevel++;
-            // Reset Player position
-            playerPos.position = Vector3.zero;
             return levels[1];
         }
         else
+        {
             return levels[2];
+        }
     }
 }
