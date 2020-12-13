@@ -1,27 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Ladder : MonoBehaviour
 {
-    public string levelName;
-    public int preBossLevels;
+    public string[] scenes;
 
-    private int currentLevel;
+    private GameObject _player;
+
+    private void Start()
+    {
+        _player = GameObject.Find("Player");
+        DontDestroyOnLoad(_player);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (currentLevel > preBossLevels)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-            else
-            {
-                SceneManager.LoadScene(levelName);
-            }
+            var scene = _player.GetComponent<LevelSystem>().GetNextLevel();
+            SceneManager.LoadScene(scene);
+
         }
     }
 }

@@ -1,23 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class GunAim : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public Camera cam;
     public Rigidbody2D playerRb;
     public SpriteRenderer Gun;
 
+    private Camera _cam;
     private Vector2 mousePos;
     private Vector2 gunPos;
+    
     
 
     void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        
+        _cam = Camera.main;
+        mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
     }
     void FixedUpdate()
     {
