@@ -10,14 +10,17 @@ public class GunAim : MonoBehaviour
     private Camera _cam;
     private Vector2 mousePos;
     private Vector2 gunPos;
-    
-    
+
+    private void Start()
+    {
+        LoadUICamera();
+    }
 
     void Update()
     {
-        _cam = Camera.main;
         mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
     }
+
     void FixedUpdate()
     {
 
@@ -35,5 +38,10 @@ public class GunAim : MonoBehaviour
             newPosition.x += x;
             newPosition.y += y;
             rb.position = newPosition;      
+    }
+
+    public void LoadUICamera()
+    {
+        _cam = Camera.main;
     }
 }

@@ -5,15 +5,17 @@ using UnityEngine;
 public class Racoon : MonoBehaviour
 {
     public Animator animator;
-    public GameObject player;
     public float interactDistance;
     [HideInInspector]
     public bool firstEncounter;
+    [HideInInspector]
+    public GameObject player;
 
     private float _distance;
 
     private void Start()
     {
+        player = GameObject.Find("Player");
         firstEncounter = true;
         _distance = 2 * interactDistance; // First time encoutering the racoon say hi from further away
     }

@@ -7,13 +7,13 @@ public class PlayerHealthController : MonoBehaviour
     public DamageController damageController;
     public HealingController healingController;
 
-    public Text healthUIText;
-    public healthBar healthBar;
+    private Text _healthUIText;
+    private healthBar _healthBar;
 
     // Start is called before the first frame update
     public void Start()
     {
-        UpdateHealthUI();
+        LoadUIHealthBar();
     }
 
     // Update is called once per frame
@@ -63,9 +63,16 @@ public class PlayerHealthController : MonoBehaviour
     /// <summary>
     /// Updates the Canvas with the Health Text element 
     /// </summary>
-    private void UpdateHealthUI()
+    public void UpdateHealthUI()
     {
-        healthUIText.text = healthController.health.ToString();
-        healthBar.SetHealth(healthController.health);
+        _healthUIText.text = healthController.health.ToString();
+        _healthBar.SetHealth(healthController.health);
+    }
+
+    public void LoadUIHealthBar()
+    {
+        _healthUIText = GameObject.Find("Health Display").GetComponent<Text>();
+        _healthBar = GameObject.Find("Health bar").GetComponent<healthBar>();
+        UpdateHealthUI();
     }
 }

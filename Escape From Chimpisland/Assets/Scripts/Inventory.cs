@@ -1,12 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [HideInInspector]
+    public List<GameObject> slots;
+
     public bool[] isFull;
-    public GameObject[] slots;
     public bool[] isSelected;
+
+    private void Start()
+    {
+        LoadUISlots();
+    }
 
     public void DropItem(int x)
     {
@@ -31,12 +37,12 @@ public class Inventory : MonoBehaviour
 
             Destroy(child.gameObject);
             isFull[x] = false;
-            
+
         }
     }
 
 
-public string getItem(int x)
+    public string getItem(int x)
     {
         string nameOfItem = "no item";
 
@@ -65,9 +71,19 @@ public string getItem(int x)
             }
             */
         }
+        return nameOfItem;
+    }
 
-
-                return nameOfItem;
+    public void LoadUISlots()
+    {
+        slots = new List<GameObject>()
+        {
+            GameObject.Find("Slot(1)"),
+            GameObject.Find("Slot(2)"),
+            GameObject.Find("Slot(3)"),
+            GameObject.Find("Slot(4)"),
+            GameObject.Find("Slot(5)"),
+        };
     }
 
 }

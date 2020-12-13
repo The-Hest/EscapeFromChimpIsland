@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public ParticleSystem dashParticles;
    
 
-
     private Vector2 moveDirection = new Vector2();
     private float dashTime;
     private bool dashing;
@@ -101,7 +100,7 @@ public class Player : MonoBehaviour
         { 
             numericPressed = 1;
         
-            for (int i = 0; i < mInventory.slots.Length; i++)
+            for (int i = 0; i < mInventory.slots.Count; i++)
             {
                 mInventory.isSelected[i] = false;
             }
@@ -117,7 +116,7 @@ public class Player : MonoBehaviour
         {
             numericPressed = 2;
         
-            for (int i = 0; i < mInventory.slots.Length; i++)
+            for (int i = 0; i < mInventory.slots.Count; i++)
             {
                 mInventory.isSelected[i] = false;
             }
@@ -133,7 +132,7 @@ public class Player : MonoBehaviour
         { 
             numericPressed = 3;
         
-            for (int i = 0; i < mInventory.slots.Length; i++)
+            for (int i = 0; i < mInventory.slots.Count; i++)
             {
                 mInventory.isSelected[i] = false;
             }
@@ -149,7 +148,7 @@ public class Player : MonoBehaviour
         { 
             numericPressed = 4;
         
-            for (int i = 0; i < mInventory.slots.Length; i++)
+            for (int i = 0; i < mInventory.slots.Count; i++)
             {
                 mInventory.isSelected[i] = false;
             }
@@ -164,7 +163,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey("5"))
         {
             numericPressed = 5;
-            for (int i = 0; i < mInventory.slots.Length; i++)
+            for (int i = 0; i < mInventory.slots.Count; i++)
             {
                 mInventory.isSelected[i] = false;
             }
@@ -191,7 +190,7 @@ public class Player : MonoBehaviour
     {
         numericPressed = 1;
 
-        for (int i = 0; i < mInventory.slots.Length; i++)
+        for (int i = 0; i < mInventory.slots.Count; i++)
         {
             mInventory.isSelected[i] = false;
         }
@@ -200,6 +199,5 @@ public class Player : MonoBehaviour
         mInventory.isSelected[x] = true;
         highlighter.transform.position = mInventory.slots[x].transform.position;
         currentItem = mInventory.getItem(x);
-        print("Player holding " + currentItem);
     }
 }

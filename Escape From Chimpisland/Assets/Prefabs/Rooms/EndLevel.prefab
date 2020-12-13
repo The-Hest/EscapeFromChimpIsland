@@ -851,7 +851,6 @@ GameObject:
   - component: {fileID: 4422392072482452242}
   - component: {fileID: 511222143241780503}
   - component: {fileID: 4781294155118301831}
-  - component: {fileID: 2857235486984801306}
   m_Layer: 0
   m_Name: EndLevel
   m_TagString: EndLevel
@@ -936,21 +935,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.91038054, y: 0.47722197}
   m_EdgeRadius: 0
---- !u!114 &2857235486984801306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4422392072482452247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ac398560389dc4c9e26f2fb15387b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: SampleScene
-  preBossLevels: 0
-  player: {fileID: 0}
 --- !u!1 &5555468747596569725
 GameObject:
   m_ObjectHideFlags: 0

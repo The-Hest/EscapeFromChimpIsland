@@ -53,8 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3422461990973556111}
-  cam: {fileID: 0}
-  playerRb: {fileID: 0}
+  playerRb: {fileID: 5180837691611417736}
   Gun: {fileID: 0}
 --- !u!114 &8788495014887965591
 MonoBehaviour:
@@ -200,6 +199,7 @@ GameObject:
   - component: {fileID: 8350380697474073811}
   - component: {fileID: 4380421778712144745}
   - component: {fileID: 1486274823707754833}
+  - component: {fileID: 5017631106274211791}
   m_Layer: 5
   m_Name: Player
   m_TagString: Player
@@ -365,7 +365,7 @@ MonoBehaviour:
   dashDuration: 0.06
   rigidgebody: {fileID: 5180837691611417736}
   playerSprite: {fileID: 5180837691611417739}
-  dashParticles: {fileID: 0}
+  dashParticles: {fileID: 1505448132291975245}
 --- !u!114 &5180837691611417713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,8 +381,6 @@ MonoBehaviour:
   healthController: {fileID: 5180837691611417742}
   damageController: {fileID: 0}
   healingController: {fileID: 0}
-  healthUIText: {fileID: 0}
-  healthBar: {fileID: 0}
 --- !u!114 &5180837691611417742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,13 +427,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5470f0c6585984f939639b7fac321c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFull: 0000000000
   slots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  isFull: 0000000000
   isSelected: 0000000000
 --- !u!82 &8350380697474073811
 AudioSource:
@@ -558,6 +556,22 @@ MonoBehaviour:
   - SampleScene
   - Boss1
   bossEncounterLevel: 5
+  playerPos: {fileID: 5180837691611417738}
+--- !u!114 &5017631106274211791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180837691611417737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46421943fbaa414bb7418e6dfe6feda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPos: {fileID: 5180837691611417738}
+  healthController: {fileID: 5180837691611417713}
+  gunAim: {fileID: 424066110984271621}
 --- !u!1 &6361291193552290920
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,5 +667,10 @@ PrefabInstance:
 --- !u!4 &1505448132291975247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8204737470086885922, guid: 6ca27059f2a2a944da3a668fe657f201, type: 3}
+  m_PrefabInstance: {fileID: 7293993406069762669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1505448132291975245 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8204737470086885920, guid: 6ca27059f2a2a944da3a668fe657f201, type: 3}
   m_PrefabInstance: {fileID: 7293993406069762669}
   m_PrefabAsset: {fileID: 0}

@@ -24,7 +24,7 @@ public class PickUp : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                for (int i = 0; i < mInventory.slots.Length; i++)
+                for (int i = 0; i < mInventory.slots.Count; i++)
                 {
                     if (mInventory.isFull[i] == false)
                     {
@@ -54,7 +54,7 @@ public class PickUp : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                for (int i = 0; i < mInventory.slots.Length; i++)
+                for (int i = 0; i < mInventory.slots.Count; i++)
                 {
                     if (mInventory.isFull[i] == false)
                     {
