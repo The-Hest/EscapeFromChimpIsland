@@ -57,27 +57,27 @@ public class EnemySpawner : MonoBehaviour
         /// -----------------------------
         /// |  Small Orge   |   30%     |
         /// -----------------------------
-        /// |  Large Shooter|   10%     |
+        /// |  Blue Shooter |   10%     |
         /// -----------------------------
-        /// |  Small Shooter|   15%     |
+        /// |  Red Shooter  |   15%     |
         /// -----------------------------
 
 
         var rand = RandomGenerator.random.Next(0, 100);
-        if (rand < 1)
+        if (rand < 15)
         {
             // Spawn health potion
             return spawnList[4];
         }
-        if (rand >= 1 && rand < 2)
+        if (rand >= 15 && rand < 45)
         {
             return spawnList[0];
         }
-        else if (rand >= 2 && rand < 15)
+        else if (rand >= 45 && rand < 75)
         {
             return spawnList[1];
         }
-        else if (rand >= 15 && rand < 55)
+        else if (rand >= 75 && rand < 85)
         {
             return spawnList[2];
         }
