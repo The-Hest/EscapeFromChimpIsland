@@ -33,9 +33,7 @@ public class Enemy : MonoBehaviour
         if (!CheckIfPlayerInRoom())
             return;
         else
-        {
             transform.position = Vector2.MoveTowards(transform.position, _target.position, speed/2 * Time.deltaTime);
-        }
 
 
         //follow player hvis enemy er indenfor attackingDistance
@@ -57,10 +55,10 @@ public class Enemy : MonoBehaviour
 
     private bool CheckIfPlayerInRoom()
     {
-        if (_target.position.x > _spawnRoom.spawnRoomPos.x - 10f &&
-            _target.position.x < _spawnRoom.spawnRoomPos.x + 10f &&
-            _target.position.y > _spawnRoom.spawnRoomPos.y - 4f &&
-            _target.position.y < _spawnRoom.spawnRoomPos.y + 4f)
+        if (_target.position.x > _spawnRoom.spawnRoomPos.x - 10.7f &&
+            _target.position.x < _spawnRoom.spawnRoomPos.x + 10.7f &&
+            _target.position.y > _spawnRoom.spawnRoomPos.y - 4.6f &&
+            _target.position.y < _spawnRoom.spawnRoomPos.y + 4.6f)
             return true;
         else
             return false;

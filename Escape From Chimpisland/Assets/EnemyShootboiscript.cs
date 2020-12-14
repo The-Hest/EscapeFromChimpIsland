@@ -3,31 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShootboiscript : MonoBehaviour
-{ 
-     public Transform firePoint;
-public GameObject bulletPrefab;
-public float bulletForce = 20f;
-public float speed = 2f;
+{
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+    public float bulletForce = 20f;
+    public float speed = 2f;
 
-private Vector3 _extendedFirepoint;
-private float _scalar = 0.0f;
+    private Transform _target;
+    private SpawnRoom _spawnRoom;
+    private bool _shooting;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartShooting(0f, 1f);
+        _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _spawnRoom = GetComponent<SpawnRoom>();
+        _shooting = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void bossShooting()
-    {
-        // Get Vector between Boss and Player
-       // _extendedFirepoint = (firePoint.position - GameObject.Find("Player").GetComponent<Transform>().position) * _scalar;
+        if (CheckIfPlayerInRoom() && !_shooting)
+            StartShooting(1f, 1f);
 
+        else if (!CheckIfPlayerInRoom() && _shooting)
+            StopShooting();
+    }
+
+    private void Shoot()
+    {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
@@ -35,12 +40,14 @@ private float _scalar = 0.0f;
 
     public void StartShooting(float beginIn, float repeatInterval)
     {
-        InvokeRepeating("bossShooting", beginIn, repeatInterval);
+        InvokeRepeating("Shoot", beginIn, repeatInterval);
+        _shooting = true;
     }
 
     public void StopShooting()
     {
-        CancelInvoke("bossShooting");
+        CancelInvoke("Shoot");
+        _shooting = false;
     }
 
     public void ResetShooting(float beginIn, float repeatInterval)
@@ -48,5 +55,16 @@ private float _scalar = 0.0f;
         StopShooting();
         StartShooting(beginIn, repeatInterval);
 
+    }
+
+    private bool CheckIfPlayerInRoom()
+    {
+        if (_target.position.x > _spawnRoom.spawnRoomPos.x - 11f &&
+            _target.position.x < _spawnRoom.spawnRoomPos.x + 11f &&
+            _target.position.y > _spawnRoom.spawnRoomPos.y - 5f &&
+            _target.position.y < _spawnRoom.spawnRoomPos.y + 5f)
+            return true;
+        else
+            return false;
     }
 }

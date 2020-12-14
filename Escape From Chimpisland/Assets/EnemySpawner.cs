@@ -94,8 +94,11 @@ public class EnemySpawner : MonoBehaviour
                 return RandomGenerator.random.Next(2, 4);
             case "FirstEnemy":
                 return RandomGenerator.random.Next(4, 7);
-            case "EnemyShooterboi Variant":
+            case "EnemyShootboi Variant":
                 return 1;
+            case "RedEnemyShootboi Variant":
+                return 3;
+
             default:
                 return 2;
         }
