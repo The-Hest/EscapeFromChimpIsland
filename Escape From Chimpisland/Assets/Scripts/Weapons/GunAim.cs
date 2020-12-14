@@ -23,21 +23,17 @@ public class GunAim : MonoBehaviour
 
     void FixedUpdate()
     {
-
-
         Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg ;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         rb.rotation = angle - 90;
         Vector2 gunPos = mousePos - rb.position;
 
-        
-        
-            var x = 1 * Mathf.Cos(angle * Mathf.Deg2Rad);
-            var y = 1 * Mathf.Sin(angle * Mathf.Deg2Rad);
-            var newPosition = playerRb.position;
-            newPosition.x += x;
-            newPosition.y += y;
-            rb.position = newPosition;      
+        var x = 1 * Mathf.Cos(angle * Mathf.Deg2Rad);
+        var y = 1 * Mathf.Sin(angle * Mathf.Deg2Rad);
+        var newPosition = playerRb.position;
+        newPosition.x += x;
+        newPosition.y += y;
+        rb.position = newPosition;
     }
 
     public void LoadUICamera()

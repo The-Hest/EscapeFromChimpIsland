@@ -14,7 +14,6 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         // Make sure not to spawn objects in entry room
-        print(transform.position);
         if (Vector3.Distance(transform.position, Vector3.zero) < 8)
             return;
 

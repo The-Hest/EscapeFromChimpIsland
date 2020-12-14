@@ -26,7 +26,6 @@ public class BossShoot : MonoBehaviour
     {
         // Get Vector between Boss and Player
         _extendedFirepoint = (firePoint.position - GameObject.Find("Player").GetComponent<Transform>().position) * _scalar;
-        print($"Shooting from: {_extendedFirepoint}\tPlayer: {GameObject.Find("Player").GetComponent<Transform>().position} \tFirepoint: {firePoint.position}");
 
         GameObject bullet = Instantiate(bulletPrefab, _extendedFirepoint, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
