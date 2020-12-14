@@ -158,6 +158,7 @@ MonoBehaviour:
   attackingDistance: 5
   enemyrigidgebody: {fileID: 6109546557287166280}
   damageController: {fileID: 6109546557287166278}
+  spawnRoom: {fileID: 0}
 --- !u!114 &6109546557287166278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,4 +235,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthController: {fileID: 3578389420462722237}
-  damageController: {fileID: 0}

@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i <= objectsToSpawn; i++)
         {
-            if (obj.CompareTag("Enemy"))    
+            if (obj.CompareTag("Enemy"))
             {
                 // Enemies spawn random in room
                 randX = Random.Range(5.5f, -5.5f); //Et rums bredde i unity units
@@ -35,7 +35,14 @@ public class EnemySpawner : MonoBehaviour
                 randY = 0;
             }
             spawnPoint = new Vector2(randX + transform.position.x, randY + transform.position.y);
-            Instantiate(obj, spawnPoint, Quaternion.identity);
+            var test = Instantiate(obj, spawnPoint, Quaternion.identity);
+
+            if (test.CompareTag("Enemy"))
+            {
+                // Set location of the room the enemy has been spawned in
+                var spawnRoom = test.AddComponent<SpawnRoom>();
+                spawnRoom.spawnRoomPos = transform.position;
+            }
         }
     }
 
@@ -67,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
         {
             return spawnList[1];
         }
-        else 
+        else
         {
             return spawnList[1];
         }
