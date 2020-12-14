@@ -47,8 +47,6 @@ public class BossBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print($"Hp: {healthController.health}, {healthController.GetHealthAsPercent()}");
-
         switch (_phase)
         {
             // Normal Phase

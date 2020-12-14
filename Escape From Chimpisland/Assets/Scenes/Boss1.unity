@@ -27095,11 +27095,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4614600143719316632, guid: c529f519ee10d354880bea654e473799, type: 3}
       propertyPath: health
-      value: 350
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 4614600143719316632, guid: c529f519ee10d354880bea654e473799, type: 3}
       propertyPath: maxHealth
-      value: 350
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 8505454216092211956, guid: c529f519ee10d354880bea654e473799, type: 3}
       propertyPath: shootMechanic

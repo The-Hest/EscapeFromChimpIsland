@@ -21,10 +21,7 @@ public class LevelSystem : MonoBehaviour
         if (_curretnLevel == 0)
             return levels[0];
         else if (_curretnLevel == bossEncounterLevel)
-        {
-
             return levels[2];
-        }
 
         return levels[1];
     }

@@ -25,12 +25,15 @@ public class Ladder : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var scene = _player.GetComponent<LevelSystem>();
+            var currentScene = _player.GetComponent<LevelSystem>().GetCurrentLevel();
+            var nextScene = _player.GetComponent<LevelSystem>().GetNextLevel();
 
-            if (scene.GetCurrentLevel() == "SampleScene")
+            if (currentScene == "SampleScene")
                 DontDestroyOnLoad(GameObject.Find("Main Camera"));
+            else
+                Destroy(GameObject.Find("Main Camera"));
 
-            SceneManager.LoadScene(scene.GetNextLevel());
+            SceneManager.LoadScene(nextScene);
 
         }
     }
