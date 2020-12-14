@@ -11,12 +11,14 @@ public class Enemy : MonoBehaviour
 
     private float _contact = 0.95f;
     private Transform _target;
+    private SpawnRoom _spawnRoom;
 
     // Start is called before the first frame update
     void Start()
     {
         //Sætter target til at være lig player og GetComponent<Transform>() finder player position
         _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _spawnRoom = GetComponent<SpawnRoom>();
     }
 
     // Update is called once per frame
@@ -27,14 +29,17 @@ public class Enemy : MonoBehaviour
 
     void Enemymovement()
     {
-        var distToPlayer = Vector2.Distance(transform.position, _target.position);
-        if (distToPlayer > 15f)
+        // If player is not in the room as the mob 
+        if (!CheckIfPlayerInRoom())
             return;
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _target.position, speed/2 * Time.deltaTime);
+        }
 
-        var ray = Physics2D.Raycast(transform.position, _target.position, 15f);
-        print(ray);
 
         //follow player hvis enemy er indenfor attackingDistance
+        var distToPlayer = Vector2.Distance(transform.position, _target.position);
         if (distToPlayer < attackingDistance && distToPlayer > _contact)
         {
             transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
@@ -49,4 +54,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+    private bool CheckIfPlayerInRoom()
+    {
+        if (_target.position.x > _spawnRoom.spawnRoomPos.x - 10f &&
+            _target.position.x < _spawnRoom.spawnRoomPos.x + 10f &&
+            _target.position.y > _spawnRoom.spawnRoomPos.y - 4f &&
+            _target.position.y < _spawnRoom.spawnRoomPos.y + 4f)
+            return true;
+        else
+            return false;
+    }
 }

@@ -8,39 +8,39 @@ public class BabyOrge : MonoBehaviour
     public Rigidbody2D enemyrigidgebody;
     public DamageController damageController;
 
-    private Transform target;
-    private float contact = 0.8f;
+    private Transform _target;
+    private float _contact = 0.8f;
+    private SpawnRoom _spawnRoom;
 
     // Start is called before the first frame update
     void Start()
     {
         //Sætter target til at være lig player og GetComponent<Transform>() finder player position
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _spawnRoom = GetComponent<SpawnRoom>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Enemymovement();
     }
 
     void Enemymovement()
     {
+        // If player is not in the room as the mob 
+        if (!CheckIfPlayerInRoom())
+            return;
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _target.position, speed / 2 * Time.deltaTime);
+        }
 
         //follow player hvis enemy er indenfor attackingDistance
-        var distToPlayer = Vector2.Distance(transform.position, target.position);
-        if ( distToPlayer < attackingDistance && distToPlayer > contact)
+        var distToPlayer = Vector2.Distance(transform.position, _target.position);
+        if (distToPlayer < attackingDistance && distToPlayer > _contact)
         {
-            /* if (Vector2.Distance(transform.position, target.position) <0.79)
-             {
-
-             }*/
-
-            {
-
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            }
+            transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
 
         }
     }
@@ -51,6 +51,17 @@ public class BabyOrge : MonoBehaviour
         {
             return;
         }
+    }
+
+    private bool CheckIfPlayerInRoom()
+    {
+        if (_target.position.x > _spawnRoom.spawnRoomPos.x - 10f &&
+            _target.position.x < _spawnRoom.spawnRoomPos.x + 10f &&
+            _target.position.y > _spawnRoom.spawnRoomPos.y - 4f &&
+            _target.position.y < _spawnRoom.spawnRoomPos.y + 4f)
+            return true;
+        else
+            return false;
     }
 
 }
