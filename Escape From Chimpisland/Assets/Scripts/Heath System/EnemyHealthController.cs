@@ -10,10 +10,16 @@ public class EnemyHealthController : MonoBehaviour
 
     private void Update()
     {
+
         if (healthController.dead)
         {
-            FindObjectOfType<AudioManager>().Play("PlayerDeath");
-            Destroy(gameObject);
+            if (gameObject.CompareTag("Boss"))
+                gameObject.GetComponent<EndController>().Initiate();
+            else
+            {
+                FindObjectOfType<AudioManager>().Play("PlayerDeath");
+                Destroy(gameObject);
+            }
         }
     }
 

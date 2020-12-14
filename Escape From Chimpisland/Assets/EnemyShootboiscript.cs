@@ -7,7 +7,7 @@ public class EnemyShootboiscript : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
-    public float speed = 2f;
+    public float speed;
 
     private Transform _target;
     private SpawnRoom _spawnRoom;
@@ -25,7 +25,7 @@ public class EnemyShootboiscript : MonoBehaviour
     void Update()
     {
         if (CheckIfPlayerInRoom() && !_shooting)
-            StartShooting(1f, 1f);
+            StartShooting(1f, speed);
 
         else if (!CheckIfPlayerInRoom() && _shooting)
             StopShooting();

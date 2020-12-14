@@ -8,10 +8,12 @@ public class LevelSystem : MonoBehaviour
     public Transform playerPos;
 
     private int _curretnLevel;
+    private bool _bossReached;
 
     private void Start()
     {
         _curretnLevel = 0;
+        _bossReached = false;
     }
 
     public string GetCurrentLevel()
@@ -19,7 +21,10 @@ public class LevelSystem : MonoBehaviour
         if (_curretnLevel == 0)
             return levels[0];
         else if (_curretnLevel == bossEncounterLevel)
+        {
+
             return levels[2];
+        }
 
         return levels[1];
     }
@@ -27,14 +32,24 @@ public class LevelSystem : MonoBehaviour
     {
         // Reset Player position
         playerPos.position = Vector3.zero;
-        if (_curretnLevel != bossEncounterLevel)
+
+        // If current level is boss go back to dungeon
+        if (_bossReached)
+        {
+            _bossReached = false;
+            _curretnLevel = 1;
+            return levels[1];
+        }
+
+        // If current level is sample go back to next dungeon level
+        else if (_curretnLevel < bossEncounterLevel)
         {
             _curretnLevel++;
             return levels[1];
         }
-        else
-        {
-            return levels[2];
-        }
+
+        // Reached boss
+        _bossReached = true;
+        return levels[2];
     }
 }

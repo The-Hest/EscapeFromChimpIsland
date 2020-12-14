@@ -64,7 +64,7 @@ MonoBehaviour:
   firePoint: {fileID: 2020370322}
   bulletPrefab: {fileID: 4018610140765184369, guid: 2072f23d566305145845b606942dd8fa, type: 3}
   bulletForce: 20
-  speed: 2
+  speed: 1
 --- !u!1001 &4402255182300795724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6109546557287166276, guid: 50fed49f07dc6fb45bd1b1ae0f46f237, type: 3}
       propertyPath: m_Name
-      value: EnemyShootboi
+      value: EnemyShootboi Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6109546557287166276, guid: 50fed49f07dc6fb45bd1b1ae0f46f237, type: 3}
       propertyPath: m_Layer

@@ -64,26 +64,26 @@ public class EnemySpawner : MonoBehaviour
 
 
         var rand = RandomGenerator.random.Next(0, 100);
-        if (rand < 15)
+        if (rand < 1)
         {
             // Spawn health potion
-            return spawnList[2];
+            return spawnList[4];
         }
-        if (rand >= 15 && rand < 45)
+        if (rand >= 1 && rand < 2)
         {
             return spawnList[0];
         }
-        else if (rand >= 45 && rand <= 75)
+        else if (rand >= 2 && rand < 15)
         {
             return spawnList[1];
         }
-        else if (rand >= 75 && rand <= 85)
+        else if (rand >= 15 && rand < 55)
         {
             return spawnList[2];
         }
         else
         {
-            return spawnList[1];
+            return spawnList[3];
         }
     }
     private int GetAmountToSpawn(GameObject gameobject)

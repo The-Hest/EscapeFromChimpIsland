@@ -27,4 +27,9 @@ public class HealthController : MonoBehaviour
             dead = true;
         }
     }
+
+    public int GetHealthAsPercent()
+    {
+        return (int)(((float)health / (float)maxHealth) * 100);
+    }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   firePoint: {fileID: 1892115349243010853}
   bulletPrefab: {fileID: 9220094342576966229, guid: 2a3daadbfa1314c45a1468d3d249fe71, type: 3}
   bulletForce: 3
-  speed: 2
+  speed: 0.5
 --- !u!1001 &1892115350185441463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38,6 +38,14 @@ PrefabInstance:
     - target: {fileID: 2020370323, guid: a1afb7f6bbe3dd845aaa73a553c3fd4c, type: 3}
       propertyPath: speed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 918468223330623473, guid: a1afb7f6bbe3dd845aaa73a553c3fd4c, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 918468223330623473, guid: a1afb7f6bbe3dd845aaa73a553c3fd4c, type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7628688727931789830, guid: a1afb7f6bbe3dd845aaa73a553c3fd4c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -129,7 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 478629999437312120, guid: 84cbe76baf7c18841ad1e6dff2d51a2c, type: 3}
     - target: {fileID: 7628688727931789832, guid: a1afb7f6bbe3dd845aaa73a553c3fd4c, type: 3}
       propertyPath: m_Name
-      value: RedEnemyShootboi Variant
+      value: RedEnemyShootboi Variant Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628688727931789834, guid: a1afb7f6bbe3dd845aaa73a553c3fd4c, type: 3}
+      propertyPath: damage
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1830208880, guid: a1afb7f6bbe3dd845aaa73a553c3fd4c, type: 3}

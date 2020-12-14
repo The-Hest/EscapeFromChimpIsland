@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BossBehavior : MonoBehaviour
 {
@@ -21,6 +19,8 @@ public class BossBehavior : MonoBehaviour
     {
         Normal,
         Hurt,
+        Hurt2,
+        Hurt3,
         Rage,
     }
     private enum AttackType
@@ -31,6 +31,7 @@ public class BossBehavior : MonoBehaviour
 
     private Phase _phase;
     private AttackType _attackType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,38 +47,65 @@ public class BossBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print($"Hp: {healthController.health}, {healthController.GetHealthAsPercent()}");
+
         switch (_phase)
         {
+            // Normal Phase
             case Phase.Normal:
-                if (healthController.health < 65)
+                if (healthController.GetHealthAsPercent() < 75)
                 {
                     _phase = Phase.Hurt;
-                    _attackType = AttackType.Homing;
-                    shootMechanic.StartShooting(1f, 2f);
+                    _attackType = AttackType.Charge;
+                    shootMechanic.StartShooting(0f, 3f);
+                    break;
                 }
+
+                if (!_isCharging)
+                    transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
                 else
-                {
-                    if (!_isCharging)
-                        transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
-                    else
-                        ChargeAttack();
-                }
+                    ChargeAttack();
                 break;
+            
+            // Hurt Phase
             case Phase.Hurt:
-                if (healthController.health < 25)
+                if (healthController.GetHealthAsPercent() < 60)
+                    _phase = Phase.Hurt2;
+
+                if (!_isCharging)
+                    transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
+                else
+                    ChargeAttack();
+                break;
+            case Phase.Hurt2:
+                if (healthController.GetHealthAsPercent() < 35)
+                    _phase = Phase.Hurt3;
+
+                if (!_isCharging)
+                    transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
+                else
+                    ChargeAttack();
+                break;
+            case Phase.Hurt3:
+                if (healthController.GetHealthAsPercent() < 10)
                 {
                     _phase = Phase.Rage;
-                    StopCoroutine("ShouldChargeAttack");
-                    InvokeRepeating("ShouldChargeAttack", 0f, 1f);
+                    shootMechanic.ResetShooting(0f, 0.3f);
+                    break;
                 }
-                else
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
 
-                }
+                if (!_isCharging)
+                    transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
+                else
+                    ChargeAttack();
                 break;
+            
+            // Rage Phase
             case Phase.Rage:
-                transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
+                if (!_isCharging)
+                    transform.position = Vector2.MoveTowards(transform.position, _player.position, moveSpeed * Time.deltaTime);
+                else
+                    ChargeAttack();
                 break;
         }
     }
@@ -101,8 +129,6 @@ public class BossBehavior : MonoBehaviour
             case AttackType.Homing:
                 break;
         }
-
-
     }
 
     private void ShouldChargeAttack()
@@ -112,19 +138,19 @@ public class BossBehavior : MonoBehaviour
         switch (_attackType)
         {
             case AttackType.Charge:
-                if (healthController.health > 90)
+                if (healthController.GetHealthAsPercent() > 90)
                 {
                     if (rand <= 0.2)
                         _isCharging = true;
                 }
-                else if (healthController.health <= 90 && healthController.health > 80)
+                else if (healthController.health <= 90 && healthController.GetHealthAsPercent() > 80)
                 {
-                    if (rand <= 0.5)
+                    if (rand <= 0.45)
                         _isCharging = true;
                 }
-                else if (healthController.health <= 80 && healthController.health > 65)
+                else if (healthController.GetHealthAsPercent() < 80)
                 {
-                    if (rand <= 0.9)
+                    if (rand <= 0.6)
                         _isCharging = true;
                 }
                 return;
