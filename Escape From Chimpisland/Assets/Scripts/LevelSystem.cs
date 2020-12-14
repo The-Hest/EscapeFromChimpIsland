@@ -13,6 +13,16 @@ public class LevelSystem : MonoBehaviour
     {
         _curretnLevel = 0;
     }
+
+    public string GetCurrentLevel()
+    {
+        if (_curretnLevel == 0)
+            return levels[0];
+        else if (_curretnLevel == bossEncounterLevel)
+            return levels[2];
+
+        return levels[1];
+    }
     public string GetNextLevel()
     {
         // Reset Player position

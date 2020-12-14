@@ -22,28 +22,22 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Enemymovement();
     }
 
     void Enemymovement()
     {
+        var distToPlayer = Vector2.Distance(transform.position, _target.position);
+        if (distToPlayer > 15f)
+            return;
+
+        var ray = Physics2D.Raycast(transform.position, _target.position, 15f);
+        print(ray);
 
         //follow player hvis enemy er indenfor attackingDistance
-        var distToPlayer = Vector2.Distance(transform.position, _target.position);
         if (distToPlayer < attackingDistance && distToPlayer > _contact)
         {
-
-           /* if (Vector2.Distance(transform.position, target.position) <0.79)
-            {
-             
-            }*/
-            
-            {
-
-                transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
-            }
-
+            transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
         }
     }
 

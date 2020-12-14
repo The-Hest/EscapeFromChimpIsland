@@ -28,14 +28,14 @@ public class PlayerHealthController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Boss") || collision.collider.CompareTag("EnemyBullet"))
+        {
+            var dmg = collision.collider.GetComponent<DamageController>().damage;
+            healthController.DamageTaken(dmg);
+            UpdateHealthUI();
+        }
+
         // If hit by a none hostile object do nothing
-        if (!collision.collider.CompareTag("Enemy") || !collision.collider.CompareTag("Boss") || !collision.collider.CompareTag("EnemyBullet"))
-            return;
-
-
-        var dmg = collision.collider.GetComponent<DamageController>().damage;
-        healthController.DamageTaken(dmg);
-        UpdateHealthUI();
     }
 
     /// <summary>
