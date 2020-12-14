@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletEnemy : MonoBehaviour
+public class RedBulletEnemy : MonoBehaviour
 {
     public Rigidbody2D rb;
     public ParticleSystem bulletSplash;
@@ -13,14 +13,14 @@ public class BulletEnemy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<HealthController>().DamageTaken(5);
+            collision.gameObject.GetComponent<HealthController>().DamageTaken(10);
             collision.gameObject.GetComponent<PlayerHealthController>().UpdateHealthUI();
             Instantiate(bulletSplash, rb.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (collision.CompareTag("Wall"))
         {
-            
+
             Instantiate(bulletSplash, rb.position, Quaternion.identity);
             Destroy(gameObject);
         }
