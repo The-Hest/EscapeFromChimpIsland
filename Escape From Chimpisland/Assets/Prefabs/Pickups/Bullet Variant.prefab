@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2547125918402913946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018610140765184369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c6db407e9572d44b93102c5989af5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 342315368868595999}
+  bulletSplash: {fileID: 4584901541923099987, guid: 4afeb0e831c60d84fb2de6e0efb8fc84, type: 3}
+  damageController: {fileID: 6932167539547626473}
 --- !u!1001 &8421853918564674994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15,12 +30,28 @@ PrefabInstance:
       propertyPath: m_TagString
       value: EnemyBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 4838158085766778051, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838158085766778051, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5111934842061276793, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5111934842061276793, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111934842061276793, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111934842061276793, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7307614134625479039, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
@@ -79,5 +110,27 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2035660283218605493, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
+--- !u!1 &4018610140765184369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4838158085766778051, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
+  m_PrefabInstance: {fileID: 8421853918564674994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &342315368868595999 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8079538576558564525, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
+  m_PrefabInstance: {fileID: 8421853918564674994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6932167539547626473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7722426365630368165, guid: d54e579c47127e6459bdedbbbd2860b6, type: 3}
+  m_PrefabInstance: {fileID: 8421853918564674994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018610140765184369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41f702323d96994b8cda1ff741c6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
