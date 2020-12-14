@@ -53,12 +53,15 @@ public class EnemySpawner : MonoBehaviour
         /// -----------------------------
         /// |  Potion       |   15%     |
         /// -----------------------------
-        /// |  Large Orge   |   40%     |  
+        /// |  Large Orge   |   30%     |  
         /// -----------------------------
-        /// |  Small Orge   |   45%     |
+        /// |  Small Orge   |   30%     |
         /// -----------------------------
-        /// |  ......       |   ..%     |
+        /// |  Large Shooter|   10%     |
         /// -----------------------------
+        /// |  Small Shooter|   15%     |
+        /// -----------------------------
+
 
         var rand = RandomGenerator.random.Next(0, 100);
         if (rand < 15)
@@ -66,13 +69,17 @@ public class EnemySpawner : MonoBehaviour
             // Spawn health potion
             return spawnList[2];
         }
-        if (rand >= 15 && rand < 55)
+        if (rand >= 15 && rand < 45)
         {
             return spawnList[0];
         }
-        else if (rand >= 55 && rand <= 100)
+        else if (rand >= 45 && rand <= 75)
         {
             return spawnList[1];
+        }
+        else if (rand >= 75 && rand <= 85)
+        {
+            return spawnList[2];
         }
         else
         {
@@ -87,6 +94,8 @@ public class EnemySpawner : MonoBehaviour
                 return RandomGenerator.random.Next(2, 4);
             case "FirstEnemy":
                 return RandomGenerator.random.Next(4, 7);
+            case "EnemyShooterboi Variant":
+                return 1;
             default:
                 return 2;
         }
