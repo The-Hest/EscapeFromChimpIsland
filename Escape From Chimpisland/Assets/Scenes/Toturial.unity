@@ -645,6 +645,24 @@ PrefabInstance:
       propertyPath: typingSpeed
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 3281089551594198975, guid: 73524d5027f2955448802bb002ba12b2, type: 3}
+      propertyPath: sentences.Array.data[11]
+      value: Pressing '1' through '5' will navigate these
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281089551594198975, guid: 73524d5027f2955448802bb002ba12b2, type: 3}
+      propertyPath: sentences.Array.data[12]
+      value: The highlighted item can be used by pressing 'U' and dropped by pressing
+        'Q'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281089551594198975, guid: 73524d5027f2955448802bb002ba12b2, type: 3}
+      propertyPath: sentences.Array.data[9]
+      value: Walking by them and pressing 'E' will equip them in your inventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281089551594198975, guid: 73524d5027f2955448802bb002ba12b2, type: 3}
+      propertyPath: sentences.Array.data[8]
+      value: Potions can be found on your journey drinking them will replenish your
+        health
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73524d5027f2955448802bb002ba12b2, type: 3}
 --- !u!114 &1178173084 stripped
